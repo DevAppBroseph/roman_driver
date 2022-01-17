@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "409143401968",
+    "project_id": "roman-335712",
+    "storage_bucket": "roman-335712.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:409143401968:android:af8b6d30df50c24c0a5135",
+        "android_client_info": {
+          "package_name": "com.ridbrain.roman"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "409143401968-ja0k32r847u2v4kku8f4nelkjjrp2qfd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCa5gApknWmOqc1-Wi6bG4PfwvgDvOue8g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "409143401968-ja0k32r847u2v4kku8f4nelkjjrp2qfd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "409143401968-b6uq362feepni6nvaddcov67v134k62o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ridbrain.roman"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

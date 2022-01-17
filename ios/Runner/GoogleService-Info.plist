@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>409143401968-u2hi4n1k3lumndhstnqsqicvbj3dmgg5.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.409143401968-u2hi4n1k3lumndhstnqsqicvbj3dmgg5</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD018XRMmtPSNnSBtcUiHqDboRUhgPnngs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>409143401968</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>ru.ridbrain.roman</string>
+	<key>PROJECT_ID</key>
+	<string>roman-335712</string>
+	<key>STORAGE_BUCKET</key>
+	<string>roman-335712.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:409143401968:ios:b5d4ee5053dd3db10a5135</string>
+</dict>
+</plist>

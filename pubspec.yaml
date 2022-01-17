@@ -25,6 +25,9 @@ dependencies:
   webview_flutter: ^2.0.14
   flutter_picker: ^2.0.2
   animated_size_and_fade: ^3.0.0
+  firebase_core: ^1.10.0
+  firebase_analytics: ^8.3.4
+  firebase_messaging: ^11.1.0
 
 dev_dependencies:
   flutter_test:
