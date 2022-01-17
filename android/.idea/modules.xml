@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android.iml" filepath="$PROJECT_DIR$/.idea/modules/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1113791495/android.geolocator_android.iml" filepath="$PROJECT_DIR$/.idea/modules/1113791495/android.geolocator_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1139040199/android.shared_preferences_android.iml" filepath="$PROJECT_DIR$/.idea/modules/1139040199/android.shared_preferences_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1303704254/android.url_launcher_android.iml" filepath="$PROJECT_DIR$/.idea/modules/1303704254/android.url_launcher_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1925247726/android.webview_flutter_android.iml" filepath="$PROJECT_DIR$/.idea/modules/-1925247726/android.webview_flutter_android.iml" />
+    </modules>
+  </component>
+</project>
