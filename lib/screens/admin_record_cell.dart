@@ -15,6 +15,7 @@ class AdminRecordCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Container(
       height: 95,
       margin: const EdgeInsets.fromLTRB(15, 5, 15, 10),

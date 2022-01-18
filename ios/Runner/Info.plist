@@ -30,6 +30,7 @@
 	<string>Разрешите доступ к геолокации для отслеживания положения по ходу выполнения заявки.</string>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>fetch</string>
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

@@ -103,7 +103,7 @@ class Company {
         companyPhone: json["company_phone"].toString(),
         companyLocation: CompanyLocation.fromJson(json['company_location']),
         companyNote: json["company_note"] ?? "",
-        companyWeb: json["company_web"] ?? "",
+        companyWeb: json["company_web"].toString(),
       );
 
   Map<String, dynamic> toJson() => {

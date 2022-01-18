@@ -93,6 +93,26 @@ class Network {
     }
   }
 
+  Future<List<Company>> getCompanies(String token) async {
+    var address = 'get_companies.php';
+
+    var data = await _webRequest(url: address, params: {
+      "token": token,
+    });
+
+    if (data != null) {
+      var answer = companiesAnswerFromJson(data);
+
+      if (answer.error == 0) {
+        return answer.companies;
+      } else {
+        return [];
+      }
+    } else {
+      return [];
+    }
+  }
+
   static Future<DriverAnswer?> getDriver(
     String login,
     String pass,
@@ -166,6 +186,96 @@ class Network {
       var answer = adminsRecordsAnswerFromJson(data);
 
       return answer.records;
+    } else {
+      return [];
+    }
+  }
+
+  Future<Company?> addCompany(
+    String token,
+    String name,
+    String phone,
+    String location,
+    String note,
+    String web,
+  ) async {
+    var address = 'add_company.php';
+
+    var data = await _request(url: address, params: {
+      "token": token,
+      "name": name,
+      "phone": phone,
+      "location": location,
+      "note": note,
+      "web": web,
+    });
+
+    if (data != null) {
+      var answer = companyAnswerFromJson(data);
+
+      if (answer.error == 0) {
+        return answer.company;
+      } else {
+        return null;
+      }
+    } else {
+      return null;
+    }
+  }
+
+  Future<Company?> editCompany(
+    String token,
+    String id,
+    String name,
+    String phone,
+    String location,
+    String note,
+    String web,
+  ) async {
+    var address = 'edit_company.php';
+
+    var data = await _webRequest(url: address, params: {
+      "token": token,
+      "company_id": id,
+      "name": name,
+      "phone": phone,
+      "location": location,
+      "note": note,
+      "web": web,
+    });
+
+    if (data != null) {
+      var answer = companyAnswerFromJson(data);
+
+      if (answer.error == 0) {
+        return answer.company;
+      } else {
+        return null;
+      }
+    } else {
+      return null;
+    }
+  }
+
+  Future<List<Result>> getPlaces(
+    String token,
+    String input,
+  ) async {
+    var address = 'get_places.php';
+
+    var data = await _webRequest(url: address, params: {
+      "token": token,
+      "input": input,
+    });
+
+    if (data != null) {
+      var answer = placesAnswerFromJson(data);
+
+      if (answer.status == "OK") {
+        return answer.results;
+      } else {
+        return [];
+      }
     } else {
       return [];
     }

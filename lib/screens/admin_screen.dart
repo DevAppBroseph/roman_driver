@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:ridbrain_project/screens/admin_accoun.dart';
 import 'package:ridbrain_project/screens/admin_calendar.dart';
+import 'package:ridbrain_project/screens/admin_companies.dart';
 
 class AdminScreen extends StatefulWidget {
   AdminScreen({Key? key}) : super(key: key);
@@ -14,6 +15,10 @@ final List<BottomNavigationBarItem> _tabBar = [
   BottomNavigationBarItem(
     icon: Icon(LineIcons.calendar),
     label: "Календарь",
+  ),
+  BottomNavigationBarItem(
+    icon: Icon(LineIcons.addressCard),
+    label: "Заявки",
   ),
   BottomNavigationBarItem(
     icon: Icon(LineIcons.userCircle),
@@ -57,8 +62,9 @@ class _AdminScreenState extends State<AdminScreen>
       backgroundColor: Colors.white,
       body: TabBarView(
         controller: _tabController,
-        children: const [
+        children: [
           AdminCalendar(),
+          AdminCompanies(),
           AdminAccount(),
         ],
       ),

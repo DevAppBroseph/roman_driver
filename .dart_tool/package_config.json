@@ -212,6 +212,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "google_place",
+      "rootUri": "file:///Users/maximyakovlev/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/google_place-0.4.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "http",
       "rootUri": "file:///Users/maximyakovlev/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.4",
       "packageUri": "lib/",
@@ -548,7 +554,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2022-01-17T09:53:32.020076Z",
+  "generated": "2022-01-18T10:58:51.158670Z",
   "generator": "pub",
   "generatorVersion": "2.15.1"
 }
