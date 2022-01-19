@@ -55,7 +55,6 @@ class _MainScreenState extends State<MainScreen>
         (firebaseToken) {
           Network.updateFcm(provider.driver.driverToken,
               provider.driver.driverId.toString(), firebaseToken!);
-          print(firebaseToken);
         },
       );
       _first = false;
