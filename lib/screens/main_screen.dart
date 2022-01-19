@@ -1,9 +1,12 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:provider/provider.dart';
 import 'package:ridbrain_project/screens/accept_orders_screen.dart';
 import 'package:ridbrain_project/screens/account_screen.dart';
 import 'package:ridbrain_project/screens/new_orders_screen.dart';
+import 'package:ridbrain_project/services/network.dart';
 import 'package:ridbrain_project/services/prefs_handler.dart';
 import 'package:ridbrain_project/services/tab_item.dart';
 
@@ -28,6 +31,7 @@ class _MainScreenState extends State<MainScreen>
   int _currentTabIndex = 0;
   var _first = true;
   late Location _location;
+  String? _firebaseToken = '';
 
   @override
   void initState() {
@@ -47,6 +51,13 @@ class _MainScreenState extends State<MainScreen>
     if (_first) {
       _location = Location(context, provider.driver);
       _location.startLocation();
+      FirebaseMessaging.instance.getToken().then(
+        (firebaseToken) {
+          Network.updateFcm(provider.driver.driverToken,
+              provider.driver.driverId.toString(), firebaseToken!);
+          print(firebaseToken);
+        },
+      );
       _first = false;
     }
 

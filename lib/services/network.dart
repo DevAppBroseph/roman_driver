@@ -387,6 +387,20 @@ class Network {
     });
   }
 
+    static Future updateFcm(
+    String token,
+    String driverId,
+    String firebaseToken,
+  ) async {
+    var address = 'update_fcm.php';
+
+    await _request(url: address, params: {
+      "token": token,
+      "driver_id": driverId,
+      "firebase_token": firebaseToken
+    });
+  }
+
   Future<List<Company>> searchCompanies(String token, String text) async {
     var address = 'search_companies.php';
 
