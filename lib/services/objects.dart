@@ -882,3 +882,60 @@ class AdminDriver {
         "driver_record_count": driverRecordCount,
       };
 }
+
+NomenclatureResult nomenclatureFromJson(String str) =>
+    NomenclatureResult.fromJson(json.decode(str));
+
+String nomenclatureToJson(NomenclatureResult data) =>
+    json.encode(data.toJson());
+
+class NomenclatureResult {
+  NomenclatureResult({
+    required this.error,
+    required this.nomenclatures,
+  });
+
+  int error;
+  List<Nomenclature> nomenclatures;
+
+  factory NomenclatureResult.fromJson(Map<String, dynamic> json) =>
+      NomenclatureResult(
+        error: json["error"],
+        nomenclatures: List<Nomenclature>.from(
+            json["nomenclatures"].map((x) => Nomenclature.fromJson(x))),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "error": error,
+        "nomenclatures":
+            List<dynamic>.from(nomenclatures.map((x) => x.toJson())),
+      };
+}
+
+class Nomenclature {
+  Nomenclature({
+    required this.id,
+    required this.uid,
+    required this.name,
+    required this.code,
+  });
+
+  int id;
+  String uid;
+  String name;
+  int code;
+
+  factory Nomenclature.fromJson(Map<String, dynamic> json) => Nomenclature(
+        id: json["id"],
+        uid: json["uid"],
+        name: json["name"],
+        code: json["code"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "uid": uid,
+        "name": name,
+        "code": code,
+      };
+}

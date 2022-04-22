@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:ridbrain_project/screens/weight_screen.dart';
 import 'package:ridbrain_project/services/buttons.dart';
 import 'package:ridbrain_project/services/constants.dart';
 import 'package:ridbrain_project/services/convert_date.dart';
@@ -247,6 +248,20 @@ class _RecordScreenState extends State<RecordScreen> {
           ),
           SliverToBoxAdapter(
             child: _getButton(provider.driver),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(15),
+              child: StandartButton(
+                label: 'Отвес',
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const WeightScreen()));
+                },
+              ),
+            ),
           ),
         ],
       ),

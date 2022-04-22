@@ -29,6 +29,7 @@ dependencies:
   firebase_analytics: ^8.3.4
   firebase_messaging: ^11.2.5
   google_place: ^0.4.3
+  easy_mask: ^2.0.1
 
 
 dev_dependencies:

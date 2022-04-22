@@ -113,6 +113,27 @@ class Network {
     }
   }
 
+  Future<List<Nomenclature>?> getNomenclatures(String token) async {
+    var address = 'get_nomenclatures.php';
+
+    var data = await _request(url: address, params: {
+      "token": token,
+    });
+    print(data);
+
+    if (data != null) {
+      var answer = nomenclatureFromJson(data);
+
+      if (answer.error == 0) {
+        return answer.nomenclatures;
+      } else {
+        return null;
+      }
+    } else {
+      return null;
+    }
+  }
+
   static Future<DriverAnswer?> getDriver(
     String login,
     String pass,
@@ -387,7 +408,7 @@ class Network {
     });
   }
 
-    static Future updateFcm(
+  static Future updateFcm(
     String token,
     String driverId,
     String firebaseToken,
