@@ -4,13 +4,13 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/android.iml" filepath="$PROJECT_DIR$/.idea/modules/android.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-15129902/android.firebase_analytics.iml" filepath="$PROJECT_DIR$/.idea/modules/-15129902/android.firebase_analytics.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1238119619/android.firebase_core.iml" filepath="$PROJECT_DIR$/.idea/modules/1238119619/android.firebase_core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1135501246/android.firebase_messaging.iml" filepath="$PROJECT_DIR$/.idea/modules/1135501246/android.firebase_messaging.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1781505586/com.baseflow.geolocator.android.geolocator_android.iml" filepath="$PROJECT_DIR$/.idea/modules/-1781505586/com.baseflow.geolocator.android.geolocator_android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1922109810/io.flutter.plugins.sharedpreferences.android.shared_preferences_android.iml" filepath="$PROJECT_DIR$/.idea/modules/-1922109810/io.flutter.plugins.sharedpreferences.android.shared_preferences_android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-958397545/io.flutter.plugins.urllauncher.android.url_launcher_android.iml" filepath="$PROJECT_DIR$/.idea/modules/-958397545/io.flutter.plugins.urllauncher.android.url_launcher_android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1743342507/io.flutter.plugins.webviewflutter.android.webview_flutter_android.iml" filepath="$PROJECT_DIR$/.idea/modules/1743342507/io.flutter.plugins.webviewflutter.android.webview_flutter_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-191972047/android.firebase_core.iml" filepath="$PROJECT_DIR$/.idea/modules/-191972047/android.firebase_core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1775214501/android.firebase_messaging.iml" filepath="$PROJECT_DIR$/.idea/modules/-1775214501/android.firebase_messaging.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/268765620/com.baseflow.geolocator.android.geolocator_android.iml" filepath="$PROJECT_DIR$/.idea/modules/268765620/com.baseflow.geolocator.android.geolocator_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1485892798/io.flutter.plugins.firebaseanalytics.android.firebase_analytics.iml" filepath="$PROJECT_DIR$/.idea/modules/-1485892798/io.flutter.plugins.firebaseanalytics.android.firebase_analytics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1520389816/io.flutter.plugins.sharedpreferences.android.shared_preferences_android.iml" filepath="$PROJECT_DIR$/.idea/modules/-1520389816/io.flutter.plugins.sharedpreferences.android.shared_preferences_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1982549321/io.flutter.plugins.urllauncher.android.url_launcher_android.iml" filepath="$PROJECT_DIR$/.idea/modules/-1982549321/io.flutter.plugins.urllauncher.android.url_launcher_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1236359442/io.flutter.plugins.webviewflutter.android.webview_flutter_android.iml" filepath="$PROJECT_DIR$/.idea/modules/-1236359442/io.flutter.plugins.webviewflutter.android.webview_flutter_android.iml" />
     </modules>
   </component>
 </project>

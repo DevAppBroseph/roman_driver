@@ -1,0 +1,4 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/ridbrain/roman/BuildConfig.java
+ com.ridbrain.roman.BuildConfig

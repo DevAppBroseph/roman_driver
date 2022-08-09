@@ -8,13 +8,17 @@
 		<data>
 		pAxFZL6xT4Xsp/qlxTdbpBUHE7E=
 		</data>
+		<key>Headers/messages.g.h</key>
+		<data>
+		KEECatYQZwXI1h39pM4sk0gg5s8=
+		</data>
 		<key>Headers/shared_preferences_ios-umbrella.h</key>
 		<data>
-		GivD4Ew1DxCKNVNCJ797WetqC24=
+		tH4C7NmWmIAFTU98ZaQZMEK3xQs=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		z8nEUmyab5fSgGwnw2O8WZTby4I=
+		QMYbM7erZz3yAdHgxIccU9uqYE0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -34,15 +38,26 @@
 			+VEridcwqcNkt6aNXNQVOunNmgXcBA0ereU1u46adPc=
 			</data>
 		</dict>
+		<key>Headers/messages.g.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			KEECatYQZwXI1h39pM4sk0gg5s8=
+			</data>
+			<key>hash2</key>
+			<data>
+			P2AaqKZH/SF+NA5fa7T+XqaM2Qbv+/lncaJb2Z0N6nM=
+			</data>
+		</dict>
 		<key>Headers/shared_preferences_ios-umbrella.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			GivD4Ew1DxCKNVNCJ797WetqC24=
+			tH4C7NmWmIAFTU98ZaQZMEK3xQs=
 			</data>
 			<key>hash2</key>
 			<data>
-			6Ww47riJw1UogOofAlEGugcX5tZ6SQRUJgNQSYnMKm8=
+			qRq/45k9fY3A79u2N4k2PG3Euh6esxFQSRwJ9WTTOX8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

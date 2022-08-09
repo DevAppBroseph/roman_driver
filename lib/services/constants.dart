@@ -12,6 +12,5 @@ const List<BoxShadow> shadow = [
   )
 ];
 
-const apiUrl = 'https://server.roman.com.ru/app/scripts/';
-const apiWebUrl = 'https://server.roman.com.ru/web/scripts/';
-
+const apiUrl = 'https://server.roman.com.ru/app/ver2/scripts/';
+const apiWebUrl = 'https://server.roman.com.ru/web/ver2/scripts/';

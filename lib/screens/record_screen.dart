@@ -28,10 +28,29 @@ class RecordScreen extends StatefulWidget {
 
 class _RecordScreenState extends State<RecordScreen> {
   late Record _record;
+  String? _weightId;
+
+  void _getWeight() async {
+    var provider = Provider.of<DataProvider>(context, listen: false);
+    var result = await Network(context).getWeight(
+      provider.user == User.driver
+          ? provider.driver.driverToken
+          : provider.admin.token!,
+      widget.record.recordId.toString(),
+      admin: provider.user == User.admin ? true : false,
+    );
+
+    if (result != null) {
+      _weightId = result.weightId.toString();
+    } else {
+      _weightId = '';
+    }
+    setState(() {});
+  }
 
   void _confirmRecord(Driver driver) async {
     var status = RecordStatus(
-      status: StatusRecord.two,
+      status: StatusRecord.taken,
       date: DateTime.now().secondsSinceEpoch(),
     );
     var history = widget.record.recordHistory;
@@ -47,7 +66,7 @@ class _RecordScreenState extends State<RecordScreen> {
     if (result) {
       setState(() {
         _record.recordHistory = history;
-        _record.recordStatus = StatusRecord.two;
+        _record.recordStatus = StatusRecord.taken;
       });
       widget.update(_record);
     }
@@ -89,7 +108,7 @@ class _RecordScreenState extends State<RecordScreen> {
 
   Widget _getButton(Driver driver) {
     switch (widget.record.recordStatus) {
-      case StatusRecord.one:
+      case StatusRecord.wait:
         return Padding(
           padding: const EdgeInsets.all(15),
           child: StandartButton(
@@ -97,15 +116,35 @@ class _RecordScreenState extends State<RecordScreen> {
             onTap: () => _confirmRecord(driver),
           ),
         );
-      case StatusRecord.two:
-        return _button("На загрузке", StatusRecord.three, driver.driverToken);
-      case StatusRecord.three:
-        return _button("На выгрузке", StatusRecord.four, driver.driverToken);
-      case StatusRecord.four:
-        return _button("Выполнена", StatusRecord.five, driver.driverToken);
-      case StatusRecord.five:
+      case StatusRecord.set:
+        return Padding(
+          padding: const EdgeInsets.all(15),
+          child: StandartButton(
+            label: 'Принять заявку',
+            onTap: () => _confirmRecord(driver),
+          ),
+        );
+      case StatusRecord.taken:
+        return _button(
+          "На загрузке",
+          StatusRecord.loading,
+          driver.driverToken,
+        );
+      case StatusRecord.loading:
+        return _button(
+          "На выгрузке",
+          StatusRecord.unloading,
+          driver.driverToken,
+        );
+      case StatusRecord.unloading:
+        return _button(
+          "Выполнена",
+          StatusRecord.done,
+          driver.driverToken,
+        );
+      case StatusRecord.done:
         return const SizedBox.shrink();
-      case StatusRecord.six:
+      case StatusRecord.cancel:
         return const SizedBox.shrink();
     }
   }
@@ -124,12 +163,14 @@ class _RecordScreenState extends State<RecordScreen> {
 
   @override
   void initState() {
+    _getWeight();
     _record = widget.record;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    print(widget.record.manager);
     var provider = Provider.of<DataProvider>(context);
 
     return Scaffold(
@@ -149,8 +190,8 @@ class _RecordScreenState extends State<RecordScreen> {
           ),
           SliverToBoxAdapter(
             child: Container(
-              height: 90,
               margin: const EdgeInsets.fromLTRB(15, 10, 15, 0),
+              padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 color: Colors.grey[200],
                 borderRadius: radius,
@@ -164,6 +205,9 @@ class _RecordScreenState extends State<RecordScreen> {
                       fontSize: 18,
                     ),
                   ),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   Text(
                     _record.company.companyLocation.address,
                     textAlign: TextAlign.center,
@@ -172,6 +216,29 @@ class _RecordScreenState extends State<RecordScreen> {
                     ),
                   ),
                 ],
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Container(
+              margin: const EdgeInsets.fromLTRB(15, 10, 15, 0),
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.grey[200],
+                borderRadius: radius,
+              ),
+              child: Center(
+                child: _weightId == null
+                    ? CircularProgressIndicator.adaptive()
+                    : Text(
+                        _weightId != ''
+                            ? 'ID отвеса: $_weightId'
+                            : 'Отвес не добавлен',
+                        style: const TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
               ),
             ),
           ),
@@ -207,7 +274,7 @@ class _RecordScreenState extends State<RecordScreen> {
                         margin: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: status.getColor(),
+                          color: status.status.color,
                         ),
                       ),
                       Column(
@@ -215,7 +282,7 @@ class _RecordScreenState extends State<RecordScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            status.getLabel(),
+                            status.status.label,
                             style: TextStyle(
                               fontSize: 16,
                             ),
@@ -249,6 +316,61 @@ class _RecordScreenState extends State<RecordScreen> {
           SliverToBoxAdapter(
             child: _getButton(provider.driver),
           ),
+          if (_record.recordStatus != StatusRecord.wait)
+            SliverToBoxAdapter(
+              child: StandartButton(
+                label: "Отказаться от заяки",
+                onTap: () => _changeStatus(
+                  StatusRecord.wait,
+                  provider.driver.driverToken,
+                ),
+              ),
+            ),
+          SliverToBoxAdapter(
+            child: Container(
+              margin: const EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.grey[200],
+                borderRadius: radius,
+              ),
+              child: Column(
+                children: [
+                  Text(
+                    _record.recordNote.isEmpty
+                        ? "Без заметки"
+                        : _record.recordNote,
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Container(
+              margin: const EdgeInsets.only(
+                  top: 0, left: 20, right: 20, bottom: 20),
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.grey[200],
+                borderRadius: radius,
+              ),
+              child: Column(
+                children: [
+                  Text(
+                    _record.manager.isEmpty
+                        ? "Менеджер не указан"
+                        : _record.manager,
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.all(15),
@@ -256,11 +378,21 @@ class _RecordScreenState extends State<RecordScreen> {
                 label: 'Отвес',
                 onTap: () {
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const WeightScreen()));
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => WeightScreen(
+                        orderId: widget.record.recordId,
+                        company: widget.record.company,
+                      ),
+                    ),
+                  );
                 },
               ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 25,
             ),
           ),
         ],

@@ -1,9 +1,11 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:provider/provider.dart';
 import 'package:ridbrain_project/screens/select_driver.dart';
+import 'package:ridbrain_project/screens/weight_screen.dart';
 import 'package:ridbrain_project/services/app_bar.dart';
 import 'package:ridbrain_project/services/buttons.dart';
 import 'package:ridbrain_project/services/constants.dart';
@@ -31,25 +33,46 @@ class EditRecordPage extends StatefulWidget {
 class _EditRecordPageState extends State<EditRecordPage> {
   late AdminRecord _record;
 
-  final _companyController = TextEditingController();
-  final _addressController = TextEditingController();
+  String? _weightId;
+
+  void _getWeight() async {
+    var provider = Provider.of<DataProvider>(context, listen: false);
+    var result = await Network(context).getWeight(
+      provider.user == User.driver
+          ? provider.driver.driverToken
+          : provider.admin.token!,
+      widget.record.recordId.toString(),
+      admin: provider.user == User.admin ? true : false,
+    );
+
+    if (result != null) {
+      _weightId = result.weightId.toString();
+    } else {
+      _weightId = '';
+    }
+    setState(() {});
+  }
+
+  // final _companyController = TextEditingController();
+  // final _addressController = TextEditingController();
   final _driverController = TextEditingController();
   final _noteController = TextEditingController();
+  final _managerController = TextEditingController();
 
   Widget _getNoteButton(String token) {
-    if (_record.recordStatus == StatusRecord.six ||
-        _record.recordStatus == StatusRecord.five) {
+    if (_record.recordStatus == StatusRecord.cancel ||
+        _record.recordStatus == StatusRecord.done) {
       return const SizedBox.shrink();
     }
     return StandartButton(
       label: "Сохранить",
-      onTap: () => _editRecordNote(token),
+      onTap: () => _editRecord(token),
     );
   }
 
   Widget _getCancelButton(String token) {
-    if (_record.recordStatus == StatusRecord.six ||
-        _record.recordStatus == StatusRecord.five) {
+    if (_record.recordStatus == StatusRecord.cancel ||
+        _record.recordStatus == StatusRecord.done) {
       return const SizedBox.shrink();
     }
     return StandartButton(
@@ -82,9 +105,22 @@ class _EditRecordPageState extends State<EditRecordPage> {
     );
   }
 
+  void _changeCash(String token, int cash) async {
+    await Network.changeCash(
+      token,
+      _record.recordId.toString(),
+      cash.toString(),
+    );
+
+    setState(() {
+      _record.cash = cash;
+    });
+    widget.save(_record);
+  }
+
   void _cancelRecord(String token) async {
     var status = RecordStatus(
-      status: StatusRecord.six,
+      status: StatusRecord.cancel,
       date: DateTime.now().secondsSinceEpoch(),
     );
     var history = _record.recordHistory;
@@ -99,7 +135,7 @@ class _EditRecordPageState extends State<EditRecordPage> {
     if (result) {
       setState(() {
         _record.recordHistory = history;
-        _record.recordStatus = StatusRecord.six;
+        _record.recordStatus = StatusRecord.cancel;
       });
       widget.save(_record);
     }
@@ -107,7 +143,7 @@ class _EditRecordPageState extends State<EditRecordPage> {
 
   void _setDriver(String token, AdminDriver driver) async {
     var status = RecordStatus(
-      status: StatusRecord.two,
+      status: StatusRecord.set,
       date: DateTime.now().secondsSinceEpoch(),
     );
     var history = _record.recordHistory;
@@ -124,13 +160,14 @@ class _EditRecordPageState extends State<EditRecordPage> {
       setState(() {
         _record.driver = driver;
         _record.recordHistory = history;
-        _record.recordStatus = StatusRecord.two;
+        _record.recordStatus = StatusRecord.set;
       });
       widget.save(_record);
     }
   }
 
-  void _editRecordNote(String token) async {
+  void _editRecord(String token) async {
+    _editRecordManager(token);
     var note = _noteController.text;
     var result = await Network(context).editRecordNote(
       token,
@@ -146,9 +183,25 @@ class _EditRecordPageState extends State<EditRecordPage> {
     }
   }
 
+  void _editRecordManager(String token) async {
+    var manager = _managerController.text;
+    var result = await Network(context).editRecordManager(
+      token,
+      _record.recordId.toString(),
+      manager,
+    );
+
+    if (result) {
+      setState(() {
+        _record.manager = manager;
+      });
+      widget.save(_record);
+    }
+  }
+
   void _changeDriver(String token) {
-    if (_record.recordStatus == StatusRecord.six ||
-        _record.recordStatus == StatusRecord.five) {
+    if (_record.recordStatus == StatusRecord.cancel ||
+        _record.recordStatus == StatusRecord.done) {
       return;
     }
     Navigator.push(
@@ -165,6 +218,7 @@ class _EditRecordPageState extends State<EditRecordPage> {
   @override
   void initState() {
     _record = widget.record;
+    _getWeight();
     super.initState();
   }
 
@@ -174,6 +228,7 @@ class _EditRecordPageState extends State<EditRecordPage> {
 
     _driverController.text = _record.driver?.driverName ?? "Не назначен";
     _noteController.text = _record.recordNote;
+    _managerController.text = _record.manager;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -213,6 +268,36 @@ class _EditRecordPageState extends State<EditRecordPage> {
               ),
             ),
             SliverToBoxAdapter(
+              child: Container(
+                height: 55,
+                margin: const EdgeInsets.fromLTRB(15, 10, 15, 0),
+                padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+                decoration: BoxDecoration(
+                  color: Colors.grey[200],
+                  borderRadius: radius,
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        "₽ ₽ ₽",
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                    CupertinoSwitch(
+                      activeColor: Colors.blueGrey,
+                      onChanged: (value) {
+                        _changeCash(provider.admin.token!, value ? 1 : 0);
+                      },
+                      value: _record.cash == 1,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.all(15),
                 child: TextFieldWidget(
@@ -235,6 +320,40 @@ class _EditRecordPageState extends State<EditRecordPage> {
               ),
             ),
             SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(15, 0, 15, 15),
+                child: TextFieldWidget(
+                  icon: LineIcons.user,
+                  controller: _managerController,
+                  hint: "Менеджер",
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Container(
+                margin: const EdgeInsets.fromLTRB(15, 10, 15, 0),
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Colors.grey[200],
+                  borderRadius: radius,
+                ),
+                child: Center(
+                  child: _weightId == null
+                      ? CircularProgressIndicator.adaptive()
+                      : Text(
+                          _weightId != ''
+                              ? 'ID отвеса: $_weightId'
+                              : 'Отвес не добавлен',
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(child: SizedBox(height: 15)),
+            SliverToBoxAdapter(
               child: _getNoteButton(provider.admin.token!),
             ),
             SliverToBoxAdapter(
@@ -256,7 +375,7 @@ class _EditRecordPageState extends State<EditRecordPage> {
                           margin: const EdgeInsets.all(15),
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: status.getColor(),
+                            color: status.status.color,
                           ),
                         ),
                         Column(
@@ -264,7 +383,7 @@ class _EditRecordPageState extends State<EditRecordPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              status.getLabel(),
+                              status.status.label,
                               style: TextStyle(
                                 fontSize: 16,
                               ),
@@ -296,7 +415,36 @@ class _EditRecordPageState extends State<EditRecordPage> {
               ),
             ),
             SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.all(15),
+                child: StandartButton(
+                  label: 'Отвес',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => WeightScreen(
+                          orderId: widget.record.recordId,
+                          company: widget.record.company,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 15,
+              ),
+            ),
+            SliverToBoxAdapter(
               child: _getCancelButton(provider.admin.token!),
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 25,
+              ),
             ),
           ],
         ),

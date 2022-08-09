@@ -4,97 +4,89 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Headers/FLTCookieManager.h</key>
-		<data>
-		QYLHCiIp0D4Gi7NoZZwtD6SwR04=
-		</data>
-		<key>Headers/FLTCookieManager_Test.h</key>
-		<data>
-		EIiIy6KkhN5KwgV4pXPyOrt62hA=
-		</data>
-		<key>Headers/FLTWKNavigationDelegate.h</key>
-		<data>
-		WJEsiokBZsbuA/Fy64WnI6zfSv4=
-		</data>
-		<key>Headers/FLTWKProgressionDelegate.h</key>
-		<data>
-		fLSjmGKTZ5+r096d4Tx0Jkz2dw4=
-		</data>
 		<key>Headers/FLTWebViewFlutterPlugin.h</key>
 		<data>
 		elcyjBLummTXQxS2qpw1oTTs+1I=
 		</data>
-		<key>Headers/FlutterWebView.h</key>
+		<key>Headers/FWFDataConverters.h</key>
 		<data>
-		AiuLK12/HjuypQtSeokh7/vGKhA=
+		K7Cp2GK9C4AHgoBnq605gB9ZDlw=
 		</data>
-		<key>Headers/FlutterWebView_Test.h</key>
+		<key>Headers/FWFGeneratedWebKitApis.h</key>
 		<data>
-		gnXEtXtdsbBNMLL3fUBF51XYD2k=
+		lxODDjZ1kWWYBK7fUjc2v+9tgpg=
 		</data>
-		<key>Headers/JavaScriptChannelHandler.h</key>
+		<key>Headers/FWFHTTPCookieStoreHostApi.h</key>
 		<data>
-		DvupicsnMFq791NHOup+GET2GtU=
+		YqWH52rTCYavMlrVLynEfr/RsKU=
+		</data>
+		<key>Headers/FWFInstanceManager.h</key>
+		<data>
+		sqeacVlRB+fHpmdjNw23gzUEUTg=
+		</data>
+		<key>Headers/FWFInstanceManager_Test.h</key>
+		<data>
+		NDVnnvNl6BQga0cccQ92remkT7c=
+		</data>
+		<key>Headers/FWFNavigationDelegateHostApi.h</key>
+		<data>
+		0L5nwDOdJJv0CcsyVevXedmsOnE=
+		</data>
+		<key>Headers/FWFObjectHostApi.h</key>
+		<data>
+		1gBWJ4e/YLsSaaOmuGosNyYYhaY=
+		</data>
+		<key>Headers/FWFPreferencesHostApi.h</key>
+		<data>
+		1MwuJzXaUDQNB5fKTGzXvK3hG1g=
+		</data>
+		<key>Headers/FWFScriptMessageHandlerHostApi.h</key>
+		<data>
+		FAWfvljRP3Dg2rp/hM4+x+6iVSM=
+		</data>
+		<key>Headers/FWFScrollViewHostApi.h</key>
+		<data>
+		d9D1hkgPPGRdJT+ziBicMd7VgXs=
+		</data>
+		<key>Headers/FWFUIDelegateHostApi.h</key>
+		<data>
+		P039HWStS+pAQdS1mRlTOHO48HI=
+		</data>
+		<key>Headers/FWFUIViewHostApi.h</key>
+		<data>
+		qSc7eznQWl4xtFyCYXlDgJwErcE=
+		</data>
+		<key>Headers/FWFUserContentControllerHostApi.h</key>
+		<data>
+		DIt1/KkbENmh34oGQcam7nbgr8c=
+		</data>
+		<key>Headers/FWFWebViewConfigurationHostApi.h</key>
+		<data>
+		mCAFGUg6FCgajtKNkr4HpDyUls0=
+		</data>
+		<key>Headers/FWFWebViewHostApi.h</key>
+		<data>
+		L/+5DefCHc4i6zZ2c6qHEYi+bPk=
+		</data>
+		<key>Headers/FWFWebsiteDataStoreHostApi.h</key>
+		<data>
+		kC3MzeF9U7TymlPOT/paQ6sKhWQ=
 		</data>
 		<key>Headers/webview-umbrella.h</key>
 		<data>
-		YnjepyqrsOlfXXxnxSD+EuHkY5g=
+		dRypBdw6DQhLIiRYsz0hs9xOhJY=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		kPHOQj4ISj8os5yeQfUf61pi1hE=
+		3L1OCJANHttQrZjqGQ3mLKc+Jj4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		G/jH5pXXH6E8Zn+TiI2l7hbFCh8=
+		ZtueaE49KY/RbBJHdq5G+5YqlVs=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Headers/FLTCookieManager.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			QYLHCiIp0D4Gi7NoZZwtD6SwR04=
-			</data>
-			<key>hash2</key>
-			<data>
-			vTDVRyxzwGnZ18artFoTp9c7C++LAFbQYEnmdg/EhvQ=
-			</data>
-		</dict>
-		<key>Headers/FLTCookieManager_Test.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			EIiIy6KkhN5KwgV4pXPyOrt62hA=
-			</data>
-			<key>hash2</key>
-			<data>
-			LJic4oJCNCaHBtwsjSoZRONINv+DP/my1/gPAF7A7bg=
-			</data>
-		</dict>
-		<key>Headers/FLTWKNavigationDelegate.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			WJEsiokBZsbuA/Fy64WnI6zfSv4=
-			</data>
-			<key>hash2</key>
-			<data>
-			sLKREjOwUaT1ujUP2sagR9AgbS2xJLM76jXXkwy7F2I=
-			</data>
-		</dict>
-		<key>Headers/FLTWKProgressionDelegate.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			fLSjmGKTZ5+r096d4Tx0Jkz2dw4=
-			</data>
-			<key>hash2</key>
-			<data>
-			nsCCer4QT7OS56rs/675mAz5AhQ3AmWTwCTowsLcFQ8=
-			</data>
-		</dict>
 		<key>Headers/FLTWebViewFlutterPlugin.h</key>
 		<dict>
 			<key>hash</key>
@@ -106,59 +98,202 @@
 			QhaCSe99Puk/DwUSnOeDAWlxaUUwABzd49wwj9HptGI=
 			</data>
 		</dict>
-		<key>Headers/FlutterWebView.h</key>
+		<key>Headers/FWFDataConverters.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			AiuLK12/HjuypQtSeokh7/vGKhA=
+			K7Cp2GK9C4AHgoBnq605gB9ZDlw=
 			</data>
 			<key>hash2</key>
 			<data>
-			ctqHS7RIrgf6s3/E/6HDBrSiADPpn31d7mp/XmPflQI=
+			BeBRT0xbikNGgRGrQwRZiusXVQACQaHPhV/j1RLOUdU=
 			</data>
 		</dict>
-		<key>Headers/FlutterWebView_Test.h</key>
+		<key>Headers/FWFGeneratedWebKitApis.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			gnXEtXtdsbBNMLL3fUBF51XYD2k=
+			lxODDjZ1kWWYBK7fUjc2v+9tgpg=
 			</data>
 			<key>hash2</key>
 			<data>
-			oUa50JhND+lQOieAZfzoixPQpMmQoj/uuM6F6IJEar0=
+			8GxP7nAz95FHkPZfp9yIun8QaNC7AKpup2sPPXTzJ3Y=
 			</data>
 		</dict>
-		<key>Headers/JavaScriptChannelHandler.h</key>
+		<key>Headers/FWFHTTPCookieStoreHostApi.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			DvupicsnMFq791NHOup+GET2GtU=
+			YqWH52rTCYavMlrVLynEfr/RsKU=
 			</data>
 			<key>hash2</key>
 			<data>
-			LCvoq0/RpSOQTu8J73RcCOX3KCu/oukKr/mXXKKNNiE=
+			qCf4n30+ki0fsQ44FK+9nhVsAl6EMQb1GYNCl9w5/rU=
+			</data>
+		</dict>
+		<key>Headers/FWFInstanceManager.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			sqeacVlRB+fHpmdjNw23gzUEUTg=
+			</data>
+			<key>hash2</key>
+			<data>
+			lJ+oBPduU+QBOFj/WXGfq4MfFXJod4tV14xe4mgMl3g=
+			</data>
+		</dict>
+		<key>Headers/FWFInstanceManager_Test.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NDVnnvNl6BQga0cccQ92remkT7c=
+			</data>
+			<key>hash2</key>
+			<data>
+			QNTJHdwieKnCQW0Uc8HzoANb6CbBNxDPK2p9PL3lkzM=
+			</data>
+		</dict>
+		<key>Headers/FWFNavigationDelegateHostApi.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0L5nwDOdJJv0CcsyVevXedmsOnE=
+			</data>
+			<key>hash2</key>
+			<data>
+			uwTM/7oAmU6JEhhXAOcGGclqpsa+XWjMagCyhVMlJD8=
+			</data>
+		</dict>
+		<key>Headers/FWFObjectHostApi.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			1gBWJ4e/YLsSaaOmuGosNyYYhaY=
+			</data>
+			<key>hash2</key>
+			<data>
+			M9xZXCkzw9hyPCvTBqIU2IbJIdkBKBSeAue/BUv5dn4=
+			</data>
+		</dict>
+		<key>Headers/FWFPreferencesHostApi.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			1MwuJzXaUDQNB5fKTGzXvK3hG1g=
+			</data>
+			<key>hash2</key>
+			<data>
+			Mxf/VENiOUysNZkPXTV6L9c/udmeMehzItB+PlzZi3s=
+			</data>
+		</dict>
+		<key>Headers/FWFScriptMessageHandlerHostApi.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			FAWfvljRP3Dg2rp/hM4+x+6iVSM=
+			</data>
+			<key>hash2</key>
+			<data>
+			h8tr0TfqwIGendvbNxSOqRMq6vk6YYFpBLIHmPrjbuM=
+			</data>
+		</dict>
+		<key>Headers/FWFScrollViewHostApi.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			d9D1hkgPPGRdJT+ziBicMd7VgXs=
+			</data>
+			<key>hash2</key>
+			<data>
+			Cs/33+PiXVXaDmMmcRVVLS2QeWiN9tUOD1K++dm/oAk=
+			</data>
+		</dict>
+		<key>Headers/FWFUIDelegateHostApi.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			P039HWStS+pAQdS1mRlTOHO48HI=
+			</data>
+			<key>hash2</key>
+			<data>
+			srhqZ/stmcvaLfJLfqM2NWKrj6iiZEg+s7Ra1qYWIDs=
+			</data>
+		</dict>
+		<key>Headers/FWFUIViewHostApi.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			qSc7eznQWl4xtFyCYXlDgJwErcE=
+			</data>
+			<key>hash2</key>
+			<data>
+			9lRRJXWMLgNvK6Bh/zMsl2tOZ7J4iRb0naOt6f6EB2Q=
+			</data>
+		</dict>
+		<key>Headers/FWFUserContentControllerHostApi.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			DIt1/KkbENmh34oGQcam7nbgr8c=
+			</data>
+			<key>hash2</key>
+			<data>
+			yo73t5zZ0tKYZ2WLdDeQG2u9eY9X5MgzVfLIPAXU6yU=
+			</data>
+		</dict>
+		<key>Headers/FWFWebViewConfigurationHostApi.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mCAFGUg6FCgajtKNkr4HpDyUls0=
+			</data>
+			<key>hash2</key>
+			<data>
+			Wcytwr4dyTxVBJfAz5VrimDbxClSyXDS7XSPoc2kAhM=
+			</data>
+		</dict>
+		<key>Headers/FWFWebViewHostApi.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			L/+5DefCHc4i6zZ2c6qHEYi+bPk=
+			</data>
+			<key>hash2</key>
+			<data>
+			uxgXUTYGOU8R8zGolTokR+ZR+3Erueuqs+KT30uaXWc=
+			</data>
+		</dict>
+		<key>Headers/FWFWebsiteDataStoreHostApi.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			kC3MzeF9U7TymlPOT/paQ6sKhWQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			5CZMFSz6RnPDEDJPikTM4ApYDcqrdB8C+utgZYintFc=
 			</data>
 		</dict>
 		<key>Headers/webview-umbrella.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			YnjepyqrsOlfXXxnxSD+EuHkY5g=
+			dRypBdw6DQhLIiRYsz0hs9xOhJY=
 			</data>
 			<key>hash2</key>
 			<data>
-			B96NF6ZBURxawi26d4Wrpl/CY0Ood3x40Y7LqDUDnJQ=
+			q5QwvRVpMG1G12Y23chlLVHHhBFGRPFsOsBpFD6OHTc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			G/jH5pXXH6E8Zn+TiI2l7hbFCh8=
+			ZtueaE49KY/RbBJHdq5G+5YqlVs=
 			</data>
 			<key>hash2</key>
 			<data>
-			QQTUoyIFXDaFxhsxRvOnPldIobj/HxermhR4QaiuEC0=
+			eEx7ZCrE+zOMUaf+bqJF3UdHTxu6t3WJ/HqpZJjOq6o=
 			</data>
 		</dict>
 	</dict>

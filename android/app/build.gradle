@@ -46,10 +46,10 @@ android {
 
     defaultConfig {
         applicationId "com.ridbrain.roman"
-        minSdkVersion 20
+        minSdkVersion 21
         targetSdkVersion 31
-        versionCode 6
-        versionName "1.2"
+        versionCode 13
+        versionName "1.9"
         multiDexEnabled true
     }
 

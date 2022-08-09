@@ -14,12 +14,14 @@ class Network {
 
   static Future<String?> _request({
     required String url,
-    Map<String, String>? params,
+    Map<String, dynamic>? params,
   }) async {
     var response = await http.post(
       Uri.parse(apiUrl + url),
       body: params,
     );
+
+    print(response.statusCode);
 
     if (response.statusCode == 200) {
       return response.body;
@@ -36,6 +38,8 @@ class Network {
       Uri.parse(apiWebUrl + url),
       body: params,
     );
+
+    print(response.body);
 
     if (response.statusCode == 200) {
       return response.body;
@@ -55,11 +59,13 @@ class Network {
   static Future<bool> checkDriverToken(
     String token,
   ) async {
+    print('request is send');
     var address = 'check_token.php';
 
     var data = await _request(url: address, params: {
       "token": token,
     });
+    print(data);
 
     if (data != null) {
       var answer = checkTokenFromJson(data);
@@ -74,11 +80,13 @@ class Network {
   }
 
   Future<bool> checkAdminToken(String token) async {
+    print('request is send');
     var address = 'check_token.php';
 
     var data = await _webRequest(url: address, params: {
       "token": token,
     });
+    print(data);
 
     if (data != null) {
       var answer = tokenAnswerFromJson(data);
@@ -144,6 +152,7 @@ class Network {
       "login": login,
       "pass": pass,
     });
+    print(data);
 
     if (data != null) {
       var answer = driverAnswerFromJson(data);
@@ -158,11 +167,13 @@ class Network {
     String pass,
   ) async {
     var address = 'user_auth.php';
+    print('object');
 
     var data = await _webRequest(url: address, params: {
       "login": login,
       "pass": pass,
     });
+    print(data);
     if (data != null) {
       var answer = userAnswerFromJson(data);
       if (answer.error == 0) {
@@ -187,6 +198,7 @@ class Network {
 
     if (data != null) {
       var answer = recordsAnswerFromJson(data);
+      print(data);
 
       return answer.records;
     } else {
@@ -222,7 +234,7 @@ class Network {
   ) async {
     var address = 'add_company.php';
 
-    var data = await _request(url: address, params: {
+    var data = await _webRequest(url: address, params: {
       "token": token,
       "name": name,
       "phone": phone,
@@ -230,7 +242,7 @@ class Network {
       "note": note,
       "web": web,
     });
-
+    print(data);
     if (data != null) {
       var answer = companyAnswerFromJson(data);
 
@@ -306,6 +318,24 @@ class Network {
     String token,
   ) async {
     var address = 'get_active_records.php';
+
+    var data = await _request(url: address, params: {
+      "token": token,
+    });
+
+    if (data != null) {
+      var answer = recordsAnswerFromJson(data);
+
+      return answer.records;
+    } else {
+      return [];
+    }
+  }
+
+  static Future<List<Record>> getArchiveRecords(
+    String token,
+  ) async {
+    var address = 'get_archive_records.php';
 
     var data = await _request(url: address, params: {
       "token": token,
@@ -449,6 +479,7 @@ class Network {
     String company,
     String status,
     String note,
+    String managerName,
   ) async {
     var address = 'add_record.php';
 
@@ -458,6 +489,7 @@ class Network {
       "company": company,
       "status": status,
       "note": note,
+      "manager": managerName,
     });
 
     if (data != null) {
@@ -519,6 +551,30 @@ class Network {
     }
   }
 
+  Future<bool> editRecordManager(
+    String token,
+    String recordId,
+    String manager,
+  ) async {
+    var address = 'edit_record_manager.php';
+
+    var data = await _webRequest(url: address, params: {
+      "token": token,
+      "record_id": recordId,
+      "manager": manager,
+    });
+    print(data);
+
+    if (data != null) {
+      var answer = messageAnswerFromJson(data);
+      _showAnswer(answer.error, answer.message);
+
+      return answer.error == 0;
+    } else {
+      return false;
+    }
+  }
+
   Future<bool> setDriver(
     String token,
     String recordId,
@@ -562,6 +618,129 @@ class Network {
       }
     } else {
       return [];
+    }
+  }
+
+  Future<Weight?> editWeight(
+    String token,
+    int orderId,
+    List<DriverNomenclature> values,
+    String comment,
+    Company company,
+    String driverName,
+  ) async {
+    var address = 'weight.php';
+
+    var data = await _request(url: address, params: {
+      "token": token,
+      "order_id": orderId.toString(),
+      "values": weightToJson(values),
+      "comment": comment,
+      "company": companyToJson(company),
+      "driver_name": driverName,
+    });
+
+    print(data);
+
+    // try {
+    if (data != null) {
+      var answer = weightAnswerFromJson(data);
+      if (answer.success == 'true') {
+        _showAnswer(0, 'Отвес добавлен');
+      } else {
+        _showAnswer(0, 'Отвес не добавлен');
+      }
+
+      return answer.weight;
+    } else {
+      return null;
+    }
+    // } catch (e) {
+    //   if (data != null) {
+    //     var answer = messageAnswerFromJson(data);
+    //     _showAnswer(answer.error, answer.message);
+    //     return null;
+    //   }
+    // }
+    // return null;
+  }
+
+  Future<Weight?> getWeight(
+    String token,
+    String orderId, {
+    bool admin = false,
+  }) async {
+    var address = 'get_weight.php';
+
+    var data;
+
+    if (admin) {
+      data = await _webRequest(url: address, params: {
+        "token": token,
+        "order_id": orderId,
+      });
+      print(data);
+    } else {
+      data = await _request(url: address, params: {
+        "token": token,
+        "order_id": orderId,
+      });
+      print(data);
+    }
+    try {
+      try {
+        if (data != null) {
+          var answer = weightFromJson(data);
+          // _showAnswer(1, answer.success);
+
+          return answer;
+        } else {
+          return null;
+        }
+      } catch (e) {
+        print('im here');
+        return null;
+      }
+    } catch (e) {
+      var answer = messageAnswerFromJson(data!);
+      _showAnswer(answer.error, answer.message);
+      return null;
+    }
+  }
+
+  static Future changeCash(
+    String token,
+    String recordId,
+    String cash,
+  ) async {
+    var address = 'change_cash.php';
+
+    await _webRequest(url: address, params: {
+      "token": token,
+      "record_id": recordId,
+      "cash": cash,
+    });
+  }
+
+  static Future<Record?> getRecord(
+    String token,
+    String recordId,
+  ) async {
+    print(recordId);
+    var address = 'get_record.php';
+
+    var data = await _request(url: address, params: {
+      "token": token,
+      "record_id": recordId,
+    });
+    print(data);
+
+    if (data != null) {
+      var answer = recordAnswerFromJson(data);
+
+      return answer.record;
+    } else {
+      return null;
     }
   }
 }

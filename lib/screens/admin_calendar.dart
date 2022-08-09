@@ -84,7 +84,7 @@ class _AdminCalendarState extends State<AdminCalendar> {
     }
   }
 
-  Widget _getRecordList() {
+  Widget _getRecordList(BuildContext context) {
     if (_loading) {
       return SliverToBoxAdapter(
         child: Container(
@@ -93,7 +93,7 @@ class _AdminCalendarState extends State<AdminCalendar> {
         ),
       );
     }
-    if (_records.forDate(_selectedDay).isEmpty) {
+    if (_records.forDate(context, _selectedDay).isEmpty) {
       return SliverToBoxAdapter(
         child: Container(
           height: 400,
@@ -110,7 +110,7 @@ class _AdminCalendarState extends State<AdminCalendar> {
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         (context, index) {
-          var record = _records.forDate(_selectedDay)[index];
+          var record = _records.forDate(context, _selectedDay)[index];
           return AdminRecordCell(
             record: record,
             onTap: () => Navigator.push(
@@ -124,7 +124,7 @@ class _AdminCalendarState extends State<AdminCalendar> {
             ),
           );
         },
-        childCount: _records.forDate(_selectedDay).length,
+        childCount: _records.forDate(context, _selectedDay).length,
       ),
     );
   }
@@ -188,7 +188,7 @@ class _AdminCalendarState extends State<AdminCalendar> {
                   focusedDay: _focusedDay,
                   selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
                   calendarFormat: CalendarFormat.twoWeeks,
-                  eventLoader: _records.forDate,
+                  eventLoader: (date) => _records.forDate(context, date),
                   startingDayOfWeek: StartingDayOfWeek.monday,
                   onDaySelected: _onDaySelected,
                   calendarStyle: CalendarStyle(
@@ -224,7 +224,7 @@ class _AdminCalendarState extends State<AdminCalendar> {
                 height: 15,
               ),
             ),
-            _getRecordList(),
+            _getRecordList(context),
           ],
         ),
       ),

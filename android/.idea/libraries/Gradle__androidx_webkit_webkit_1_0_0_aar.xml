@@ -3,6 +3,7 @@
     <ANNOTATIONS>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/b2bf04163a9046f31e2512bb8c983361/transformed/webkit-1.0.0/annotations.zip!/" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/e9a09e4f570793a415bf87a1272b4fb2/transformed/webkit-1.0.0/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/81a1390004cc7cc4ee36d56f0eab9360/transformed/webkit-1.0.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/b2bf04163a9046f31e2512bb8c983361/transformed/webkit-1.0.0/jars/classes.jar!/" />
@@ -11,6 +12,9 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/e9a09e4f570793a415bf87a1272b4fb2/transformed/webkit-1.0.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e9a09e4f570793a415bf87a1272b4fb2/transformed/webkit-1.0.0/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e9a09e4f570793a415bf87a1272b4fb2/transformed/webkit-1.0.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/81a1390004cc7cc4ee36d56f0eab9360/transformed/webkit-1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/81a1390004cc7cc4ee36d56f0eab9360/transformed/webkit-1.0.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/81a1390004cc7cc4ee36d56f0eab9360/transformed/webkit-1.0.0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

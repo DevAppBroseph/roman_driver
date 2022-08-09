@@ -1,100 +1,364 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:google_place/google_place.dart';
+import 'package:line_icons/line_icons.dart';
+import 'package:provider/provider.dart';
+import 'package:ridbrain_project/screens/camera.dart';
 import 'package:ridbrain_project/screens/pick_nomenclature.dart';
 import 'package:ridbrain_project/services/buttons.dart';
 import 'package:ridbrain_project/services/constants.dart';
+import 'package:ridbrain_project/services/network.dart';
 import 'package:ridbrain_project/services/objects.dart';
+import 'package:ridbrain_project/services/prefs_handler.dart';
 import 'package:ridbrain_project/services/snack_bar.dart';
 import 'package:ridbrain_project/services/text_field.dart';
 
 class WeightScreen extends StatefulWidget {
-  const WeightScreen({Key? key}) : super(key: key);
+  final int orderId;
+  final Company company;
+  const WeightScreen({
+    Key? key,
+    required this.orderId,
+    required this.company,
+  }) : super(key: key);
 
   @override
   State<WeightScreen> createState() => _WeightScreenState();
 }
 
 class _WeightScreenState extends State<WeightScreen> {
-  List<Nomenclature?> _addedNomenclatures = [null];
+  List<DriverNomenclature> _addedNomenclatures = [
+    DriverNomenclature(nomenclature: null, botling: null, tare: null, net: null)
+  ];
+  var _commentController = TextEditingController();
+  bool _loading = false;
+
+  @override
+  void initState() {
+    print(widget.orderId);
+    _getWeight();
+    super.initState();
+  }
+
+  void _editWeight() async {
+    // if (_addedNomenclatures.last.nomenclature != null) {
+    var provider = Provider.of<DataProvider>(context, listen: false);
+    var result = await Network(context).editWeight(
+      provider.driver.driverToken,
+      widget.orderId,
+      _addedNomenclatures,
+      _commentController.text,
+      widget.company,
+      provider.driver.driverName,
+    );
+    if (result != null) {}
+    // }
+  }
+
+  void _getWeight() async {
+    setState(() => _loading = true);
+    var provider = Provider.of<DataProvider>(context, listen: false);
+    var result = await Network(context).getWeight(
+      provider.user == User.driver
+          ? provider.driver.driverToken
+          : provider.admin.token!,
+      widget.orderId.toString(),
+      admin: provider.user == User.admin ? true : false,
+    );
+    if (result != null) {
+      setState(() {
+        if (result.weight.isNotEmpty) {
+          _addedNomenclatures = result.weight;
+        }
+        _commentController.text = result.comment;
+        _loading = false;
+      });
+    } else {
+      setState(() {
+        _loading = false;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: CustomScrollView(
-        slivers: [
-          const SliverAppBar(
-            pinned: true,
-            backgroundColor: Colors.white,
-            flexibleSpace: FlexibleSpaceBar(
-              title: Text(
-                'Отвес',
-                style: TextStyle(color: Colors.black),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              fullscreenDialog: true,
+              builder: (context) => CameraPage(),
+            ),
+          ).then((value) {
+            if (value != null) {
+              if (value is XFile) {
+                
+              }
+            }
+          });
+          // showModalBottomSheet(
+          //   context: context,
+          //   backgroundColor: Colors.transparent,
+          //   builder: (context) => Container(
+          //     height: 200,
+          //     decoration: BoxDecoration(
+          //       color: Colors.white,
+          //       borderRadius: BorderRadius.only(
+          //         topLeft: Radius.circular(15),
+          //         topRight: Radius.circular(15),
+          //       ),
+          //     ),
+          //     child: Row(
+          //       children: [
+          //         Expanded(
+          //             flex: 1,
+          //             child: Center(
+          //               child: Column(
+          //                 children: [
+          //                   IconButton(
+          //                     onPressed: () {},
+          //                     icon: Icon(
+          //                       Icons.camera_alt_rounded,
+          //                     ),
+          //                   ),
+          //                 ],
+          //               ),
+          //             )),
+          //         Expanded(
+          //             flex: 1,
+          //             child: Column(
+          //               children: [
+          //                 IconButton(
+          //                   onPressed: () {},
+          //                   icon: Icon(
+          //                     Icons.camera_alt_rounded,
+          //                   ),
+          //                 ),
+          //               ],
+          //             )),
+          //       ],
+          //     ),
+          //   ),
+          // );
+        },
+        backgroundColor: Colors.grey[700],
+        child: Icon(
+          Icons.camera_alt_rounded,
+          color: Colors.white,
+        ),
+      ),
+      body: GestureDetector(
+        onTap: () {
+          FocusManager.instance.primaryFocus?.unfocus();
+        },
+        child: CustomScrollView(
+          slivers: [
+            const SliverAppBar(
+              pinned: true,
+              backgroundColor: Colors.white,
+              flexibleSpace: FlexibleSpaceBar(
+                title: Text(
+                  'Отвес',
+                  style: TextStyle(color: Colors.black),
+                ),
+                centerTitle: true,
               ),
-              centerTitle: true,
             ),
-          ),
-          SliverToBoxAdapter(child: SizedBox(height: 25)),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) => _nomenclatureWidget(index, context),
-              childCount: _addedNomenclatures.length,
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: StandartButton(
-                label: 'Добавить номенклатуру',
-                onTap: () {
-                  if (_addedNomenclatures.last != null) {
-                    setState(() {
-                      _addedNomenclatures.add(null);
-                    });
-                  } else {
-                    StandartSnackBar.show(
-                      context,
-                      'Чтобы добавить номенклатуру, необходимо заполнить предыдущую.',
-                      SnackBarStatus.warning(),
-                    );
-                  }
-                },
+            SliverToBoxAdapter(child: SizedBox(height: 25)),
+            if (!_loading)
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) => _nomenclatureWidget(index, context),
+                  childCount: _addedNomenclatures.length,
+                ),
               ),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: StandartButton(
-                label: 'Сохранить',
-                onTap: () {
-                  setState(() {
-                    _addedNomenclatures.add(null);
-                  });
-                },
+            if (!_loading)
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 0),
+                  child: StandartButton(
+                    label: 'Добавить номенклатуру',
+                    onTap: () {
+                      if (_addedNomenclatures.last.nomenclature != null &&
+                          _addedNomenclatures.last.tare != null) {
+                        _editWeight();
+                        setState(() {
+                          _addedNomenclatures.add(
+                            DriverNomenclature(
+                                nomenclature: null,
+                                botling: null,
+                                tare: null,
+                                net: null),
+                          );
+                        });
+                      } else {
+                        StandartSnackBar.show(
+                          context,
+                          'Чтобы добавить номенклатуру, необходимо заполнить предыдущую.',
+                          SnackBarStatus.warning(),
+                        );
+                      }
+                    },
+                  ),
+                ),
               ),
-            ),
-          ),
-          SliverToBoxAdapter(child: SizedBox(height: 35)),
-        ],
+            if (!_loading)
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15, top: 40, bottom: 5),
+                  child: Text(
+                    'Поле для заметки',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ),
+              ),
+            if (!_loading)
+              SliverToBoxAdapter(
+                child: Container(
+                  margin: const EdgeInsets.only(left: 15, right: 15),
+                  child: TextFieldWidget(
+                    hint: 'Заметка',
+                    onChanged: (text) {},
+                    type: TextInputType.text,
+                    controller: _commentController,
+                  ),
+                ),
+              ),
+            if (!_loading)
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: StandartButton(
+                    label: 'Сохранить',
+                    onTap: () {
+                      _editWeight();
+                    },
+                  ),
+                ),
+              ),
+            SliverToBoxAdapter(child: SizedBox(height: 35)),
+          ],
+        ),
       ),
     );
   }
 
-  Container _nomenclatureWidget(int index, BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.grey[200],
-        borderRadius: radius,
-      ),
-      margin: EdgeInsets.only(right: 15, left: 15, bottom: 15),
-      child: Column(
-        children: [
-          if (_addedNomenclatures[index]?.name == null)
-            Padding(
-              padding: EdgeInsets.only(top: 15, left: 15, right: 15),
-              child: StandartButton(
-                label: _addedNomenclatures[index]?.name ?? 'Номенклатура',
+  Widget _nomenclatureWidget(int index, BuildContext context) {
+    TextEditingController _butController = TextEditingController();
+    if (_addedNomenclatures.length > 1 &&
+        _addedNomenclatures.last == _addedNomenclatures[index]) {
+      if (_addedNomenclatures[_addedNomenclatures.length - 2].tare != null) {
+        _butController.text =
+            _addedNomenclatures[_addedNomenclatures.length - 2].tare.toString();
+        _addedNomenclatures[index].botling =
+            _addedNomenclatures[_addedNomenclatures.length - 2].tare;
+      } else {
+        _butController.text = '';
+      }
+    } else {
+      if (index > 0) {
+        if (_addedNomenclatures[index - 1].tare != null) {
+          _butController.text = _addedNomenclatures[index - 1].tare.toString();
+          _addedNomenclatures[index].botling =
+              _addedNomenclatures[index - 1].tare;
+        } else
+          _butController.text = '';
+      } else {
+        if (_addedNomenclatures[index].botling != null) {
+          _butController.text = _addedNomenclatures[index].botling.toString();
+          _addedNomenclatures[index].botling =
+              _addedNomenclatures[index].botling;
+        } else {
+          if (_addedNomenclatures[index].net != null &&
+              _addedNomenclatures[index].tare != null) {
+            _butController.text = (_addedNomenclatures[index].net! +
+                    _addedNomenclatures[index].tare!)
+                .toString();
+            _addedNomenclatures[index].botling =
+                _addedNomenclatures[index].net! +
+                    _addedNomenclatures[index].tare!;
+          } else {
+            _butController.text = '';
+          }
+        }
+      }
+    }
+    // TextEditingController _butController = TextEditingController(
+    //   text: _addedNomenclatures.length > 1 &&
+    //           _addedNomenclatures.last == _addedNomenclatures[index]
+    //       ? _addedNomenclatures[_addedNomenclatures.length - 2].tare != null
+    //           ? _addedNomenclatures[_addedNomenclatures.length - 2]
+    //               .tare
+    //               .toString()
+    //           : ''
+    //       : index > 0
+    //           ? _addedNomenclatures[index - 1].tare != null
+    //               ? _addedNomenclatures[index - 1].tare.toString()
+    //               : ''
+    //           : _addedNomenclatures[index].botling != null
+    //               ? _addedNomenclatures[index].botling.toString()
+    //               : _addedNomenclatures[index].net != null &&
+    //                       _addedNomenclatures[index].tare != null
+    //                   ? (_addedNomenclatures[index].net! +
+    //                           _addedNomenclatures[index].tare!)
+    //                       .toString()
+    //                   : '',
+    // );
+    TextEditingController _tarController = TextEditingController(
+      text: _addedNomenclatures[index].tare != null
+          ? _addedNomenclatures[index].tare.toString()
+          : '',
+    );
+
+    // if (_addedNomenclatures.length > 2) {
+    //   _butController.text = _addedNomenclatures[index - 1] != null
+    //       ? _addedNomenclatures[index - 1]!.tare.toString()
+    //       : '';
+    // }
+
+    return Dismissible(
+      key: UniqueKey(),
+      direction: DismissDirection.endToStart,
+      onDismissed: (_) {
+        setState(() {
+          _addedNomenclatures.removeAt(index);
+        });
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.grey[200],
+          borderRadius: radius,
+        ),
+        margin: EdgeInsets.only(right: 15, left: 15, bottom: 15),
+        child: Column(
+          children: [
+            if (_addedNomenclatures[index].nomenclature?.name == null)
+              Padding(
+                padding: EdgeInsets.only(top: 15, left: 15, right: 15),
+                child: StandartButton(
+                  label: _addedNomenclatures[index].nomenclature?.name ??
+                      'Номенклатура',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PickNomenclatureScreen(),
+                      ),
+                    ).then((value) {
+                      if (value is Nomenclature) {
+                        setState(() {
+                          _addedNomenclatures[index].nomenclature = value;
+                        });
+                      }
+                    });
+                  },
+                ),
+              ),
+            if (_addedNomenclatures[index].nomenclature?.name != null)
+              GestureDetector(
                 onTap: () {
                   Navigator.push(
                     context,
@@ -104,95 +368,179 @@ class _WeightScreenState extends State<WeightScreen> {
                   ).then((value) {
                     if (value is Nomenclature) {
                       setState(() {
-                        _addedNomenclatures[index] = value;
+                        _addedNomenclatures[index].nomenclature = value;
                       });
                     }
                   });
                 },
-              ),
-            ),
-          if (_addedNomenclatures[index]?.name != null)
-            Padding(
-              padding: EdgeInsets.only(
-                left: 15,
-                right: 15,
-                top: 15,
-              ),
-              child: Text(
-                _addedNomenclatures[index]!.name,
-                textAlign: TextAlign.start,
-              ),
-            ),
-          Row(
-            children: [
-              Expanded(
-                flex: 2,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(top: 15, bottom: 5, left: 15),
-                      child: Text('Бутирование'),
-                    ),
-                    Container(
-                      height: 45,
-                      margin: EdgeInsets.only(bottom: 15, right: 5, left: 15),
-                      child: TextFieldWidget(
-                        hint: '',
-                        type: TextInputType.phone,
-                        controller: TextEditingController(),
-                      ),
-                    ),
-                  ],
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    left: 15,
+                    right: 15,
+                    top: 15,
+                  ),
+                  child: Text(
+                    _addedNomenclatures[index].nomenclature!.name,
+                    textAlign: TextAlign.start,
+                  ),
                 ),
               ),
-              Expanded(
-                flex: 2,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(top: 15, bottom: 5, left: 15),
-                      child: Text('Тарирование'),
-                    ),
-                    Container(
-                      height: 45,
-                      margin: EdgeInsets.only(bottom: 15, right: 15, left: 15),
-                      child: TextFieldWidget(
-                        hint: '',
-                        type: TextInputType.phone,
-                        controller: TextEditingController(),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                  flex: 1,
+            Row(
+              children: [
+                Expanded(
+                  flex: 2,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 5),
-                        child: Text('Нетто'),
+                        padding:
+                            const EdgeInsets.only(top: 15, bottom: 5, left: 15),
+                        child: Text('Бутирование'),
                       ),
                       Container(
+                        height: 45,
+                        margin: EdgeInsets.only(bottom: 15, right: 5, left: 15),
+                        child: Stack(
+                          children: [
+                            TextFieldWidget(
+                              onChanged: (value) {
+                                _addedNomenclatures[index].botling =
+                                    int.parse(value);
+                                // setState(() {});
+                              },
+                              hint: '',
+                              type: TextInputType.phone,
+                              controller: _butController,
+                            ),
+                            Align(
+                              alignment: Alignment.bottomRight,
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                  bottom: 5,
+                                  right: 5,
+                                ),
+                                child: Text(
+                                  'кг',
+                                  style: TextStyle(color: Colors.grey[500]),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(top: 15, bottom: 5, left: 15),
+                        child: Text('Тарирование'),
+                      ),
+                      Container(
+                        height: 45,
+                        margin:
+                            EdgeInsets.only(bottom: 15, right: 15, left: 15),
+                        child: Stack(
+                          children: [
+                            TextFieldWidget(
+                              hint: '',
+                              onChanged: (text) {
+                                // setState(() {
+                                _addedNomenclatures[index].tare =
+                                    int.parse(text);
+                                _addedNomenclatures[index].net =
+                                    int.parse(_butController.text) -
+                                        int.parse(text);
+                                // });
+                              },
+                              type: TextInputType.phone,
+                              controller: _tarController,
+                            ),
+                            Align(
+                              alignment: Alignment.bottomRight,
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                  bottom: 5,
+                                  right: 5,
+                                ),
+                                child: Text(
+                                  'кг',
+                                  style: TextStyle(color: Colors.grey[500]),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: GestureDetector(
+                    onTap: () {
+                      _editWeight();
+                      setState(() {});
+                    },
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 5),
+                          child: Text('Нетто'),
+                        ),
+                        Container(
                           margin: EdgeInsets.only(right: 15),
                           decoration: BoxDecoration(
                             color: Colors.black.withOpacity(0.05),
                             borderRadius: radius,
                           ),
                           height: 45,
-                          child: Center(child: Text('349кг'))),
-                    ],
-                  )),
-            ],
-          ),
-        ],
+                          child: Stack(
+                            children: [
+                              Center(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(bottom: 5),
+                                  child: Text(
+                                    _addedNomenclatures[index].net != null
+                                        ? _addedNomenclatures[index]
+                                            .net
+                                            .toString()
+                                        : '',
+                                  ),
+                                ),
+                              ),
+                              Align(
+                                alignment: Alignment.bottomRight,
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                    bottom: 5,
+                                    right: 5,
+                                  ),
+                                  child: Text(
+                                    'кг',
+                                    style: TextStyle(color: Colors.grey[500]),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

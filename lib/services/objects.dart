@@ -80,6 +80,8 @@ class CompanyAnswer {
       );
 }
 
+String companyToJson(Company data) => json.encode(data.toJson());
+
 class Company {
   Company({
     required this.companyId,
@@ -225,50 +227,20 @@ class Record {
     required this.recordDate,
     required this.recordStatus,
     required this.recordNote,
+    required this.manager,
     required this.company,
     required this.recordHistory,
+    required this.cash,
   });
 
   int recordId;
   int recordDate;
   StatusRecord recordStatus;
   String recordNote;
+  String manager;
   Company company;
   List<RecordStatus> recordHistory;
-
-  Color getColor() {
-    switch (recordStatus) {
-      case StatusRecord.one:
-        return Colors.red.shade100;
-      case StatusRecord.two:
-        return Colors.orange.shade100;
-      case StatusRecord.three:
-        return Colors.blue.shade100;
-      case StatusRecord.four:
-        return Colors.teal.shade100;
-      case StatusRecord.five:
-        return Colors.green.shade100;
-      case StatusRecord.six:
-        return Colors.grey.shade100;
-    }
-  }
-
-  String getStatus() {
-    switch (recordStatus) {
-      case StatusRecord.one:
-        return "Ожидание";
-      case StatusRecord.two:
-        return "Принята";
-      case StatusRecord.three:
-        return "На загрузке";
-      case StatusRecord.four:
-        return "На выгрузке";
-      case StatusRecord.five:
-        return "Выполнена";
-      case StatusRecord.six:
-        return "Отменена";
-    }
-  }
+  int cash;
 
   static StatusRecord getStatusFromString(String statusString) {
     for (StatusRecord item in StatusRecord.values) {
@@ -276,7 +248,7 @@ class Record {
         return item;
       }
     }
-    return StatusRecord.one;
+    return StatusRecord.wait;
   }
 
   factory Record.fromJson(Map<String, dynamic> json) => Record(
@@ -285,9 +257,11 @@ class Record {
         recordHistory: List<RecordStatus>.from(
           json["record_history"].map((x) => RecordStatus.fromJson(x)),
         ),
+        manager: json["manager"] ?? '',
         recordNote: json["record_note"],
         company: Company.fromJson(json["company"]),
         recordStatus: getStatusFromString(json['record_status']),
+        cash: json["cash"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -299,10 +273,11 @@ class Record {
         "record_note": recordNote,
         "record_status": recordStatus.name,
         "company": company.toJson(),
+        "cash": cash,
       };
 }
 
-enum StatusRecord { one, two, three, four, five, six }
+enum StatusRecord { wait, set, taken, loading, unloading, done, cancel }
 
 class RecordStatus {
   RecordStatus({
@@ -313,47 +288,13 @@ class RecordStatus {
   StatusRecord status;
   int date;
 
-  String getLabel() {
-    switch (status) {
-      case StatusRecord.one:
-        return "Ожидание";
-      case StatusRecord.two:
-        return "Принята";
-      case StatusRecord.three:
-        return "На загрузке";
-      case StatusRecord.four:
-        return "На выгрузке";
-      case StatusRecord.five:
-        return "Выполнена";
-      case StatusRecord.six:
-        return "Отменена";
-    }
-  }
-
-  Color getColor() {
-    switch (status) {
-      case StatusRecord.one:
-        return Colors.red.shade100;
-      case StatusRecord.two:
-        return Colors.orange.shade100;
-      case StatusRecord.three:
-        return Colors.blue.shade100;
-      case StatusRecord.four:
-        return Colors.teal.shade100;
-      case StatusRecord.five:
-        return Colors.green.shade100;
-      case StatusRecord.six:
-        return Colors.grey.shade100;
-    }
-  }
-
   static StatusRecord getStatusFromString(String statusString) {
     for (StatusRecord item in StatusRecord.values) {
       if (item.name == statusString) {
         return item;
       }
     }
-    return StatusRecord.one;
+    return StatusRecord.wait;
   }
 
   factory RecordStatus.fromJson(Map<String, dynamic> json) => RecordStatus(
@@ -749,8 +690,10 @@ class AdminRecord {
     required this.recordDate,
     required this.recordStatus,
     required this.recordNote,
+    required this.manager,
     required this.company,
     required this.recordHistory,
+    required this.cash,
     this.driver,
   });
 
@@ -758,9 +701,11 @@ class AdminRecord {
   int recordDate;
   StatusRecord recordStatus;
   String recordNote;
+  String manager;
   Company company;
   AdminDriver? driver;
   List<RecordStatus> recordHistory;
+  int cash;
 
   String driverName() {
     if (driver == null) {
@@ -769,52 +714,19 @@ class AdminRecord {
     return driver!.driverName;
   }
 
-  Color getColor() {
-    switch (recordStatus) {
-      case StatusRecord.one:
-        return Colors.red.shade100;
-      case StatusRecord.two:
-        return Colors.orange.shade100;
-      case StatusRecord.three:
-        return Colors.blue.shade100;
-      case StatusRecord.four:
-        return Colors.teal.shade100;
-      case StatusRecord.five:
-        return Colors.green.shade100;
-      case StatusRecord.six:
-        return Colors.grey.shade200;
-    }
-  }
-
-  String getStatus() {
-    switch (recordStatus) {
-      case StatusRecord.one:
-        return "Ожидание";
-      case StatusRecord.two:
-        return "Принята";
-      case StatusRecord.three:
-        return "На загрузке";
-      case StatusRecord.four:
-        return "На выгрузке";
-      case StatusRecord.five:
-        return "Выполнена";
-      case StatusRecord.six:
-        return "Отменена";
-    }
-  }
-
   static StatusRecord getStatusFromString(String statusString) {
     for (StatusRecord item in StatusRecord.values) {
       if (item.name == statusString) {
         return item;
       }
     }
-    return StatusRecord.one;
+    return StatusRecord.wait;
   }
 
   factory AdminRecord.fromJson(Map<String, dynamic> json) => AdminRecord(
         recordId: json["record_id"],
         recordDate: json["record_date"],
+        manager: json["manager"] ?? '',
         recordHistory: List<RecordStatus>.from(
           json["record_history"].map((x) => RecordStatus.fromJson(x)),
         ),
@@ -824,6 +736,7 @@ class AdminRecord {
             : null,
         company: Company.fromJson(json["company"]),
         recordStatus: getStatusFromString(json['record_status']),
+        cash: json["cash"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -836,6 +749,7 @@ class AdminRecord {
         "driver": driver != null ? driver!.toJson() : "",
         "record_status": recordStatus.name,
         "company": company.toJson(),
+        "cash": cash,
       };
 }
 
@@ -906,11 +820,14 @@ class NomenclatureResult {
       );
 
   Map<String, dynamic> toJson() => {
-        "error": error,
+        // "error": error,
         "nomenclatures":
             List<dynamic>.from(nomenclatures.map((x) => x.toJson())),
       };
 }
+
+Nomenclature nomenclatureWeightFromJson(String str) =>
+    Nomenclature.fromJson(json.decode(str));
 
 class Nomenclature {
   Nomenclature({
@@ -937,5 +854,106 @@ class Nomenclature {
         "uid": uid,
         "name": name,
         "code": code,
+      };
+}
+
+String weightToJson(List<DriverNomenclature> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
+String nomenclatureWeightToJson(Nomenclature data) =>
+    json.encode(data.toJson());
+
+List<DriverNomenclature> listOfWeightFromJson(String str) =>
+    List<DriverNomenclature>.from(
+        json.decode(str).map((x) => DriverNomenclature.fromJson(x)));
+
+class DriverNomenclature {
+  DriverNomenclature({
+    required this.nomenclature,
+    required this.botling,
+    required this.tare,
+    required this.net,
+  });
+
+  Nomenclature? nomenclature;
+  int? botling;
+  int? tare;
+  int? net;
+
+  factory DriverNomenclature.fromJson(Map<String, dynamic> json) =>
+      DriverNomenclature(
+        nomenclature: json["nomenclature"] != null
+            ? Nomenclature.fromJson(json["nomenclature"])
+            : null,
+        botling: json["botling"],
+        tare: json["tare"],
+        net: json["net"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "nomenclature": nomenclature,
+        "botilng": botling,
+        "tare": tare,
+        "net": net,
+      };
+}
+
+WeightAnswer weightAnswerFromJson(String str) =>
+    WeightAnswer.fromJson(json.decode(str));
+
+String weightAnswerToJson(WeightAnswer data) => json.encode(data.toJson());
+
+class WeightAnswer {
+  WeightAnswer({
+    required this.success,
+    required this.weight,
+  });
+
+  String success;
+  Weight weight;
+
+  factory WeightAnswer.fromJson(Map<String, dynamic> json) => WeightAnswer(
+        success: json["success"],
+        weight: Weight.fromJson(json["weight"]),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "success": success,
+        "weight": weight.toJson(),
+      };
+}
+
+Weight weightFromJson(String str) => Weight.fromJson(json.decode(str));
+
+// String weightToJson(Weight data) => json.encode(data.toJson());
+
+class Weight {
+  Weight({
+    required this.weightId,
+    required this.orderId,
+    required this.weight,
+    required this.date,
+    required this.comment,
+  });
+
+  int? weightId;
+  int orderId;
+  List<DriverNomenclature> weight;
+  int date;
+  String comment;
+
+  factory Weight.fromJson(Map<String, dynamic> json) => Weight(
+        weightId: int.tryParse(json["weight_id"]),
+        orderId: int.parse(json["order_id"]),
+        weight: listOfWeightFromJson(json["weight"]),
+        date: int.parse(json["date"]),
+        comment: json["comment"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "weight_id": weightId,
+        "order_id": orderId,
+        "weight": weight,
+        "date": date,
       };
 }

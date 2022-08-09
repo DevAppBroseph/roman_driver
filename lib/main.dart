@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +6,8 @@ import 'package:overlay_support/overlay_support.dart';
 import 'package:provider/provider.dart';
 import 'package:ridbrain_project/screens/check_screen.dart';
 import 'package:ridbrain_project/services/prefs_handler.dart';
+
+late List<CameraDescription> cameras;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +23,7 @@ void main() async {
     provisional: false,
     sound: true,
   );
+  cameras = await availableCameras();
   runApp(
     MultiProvider(
       providers: [

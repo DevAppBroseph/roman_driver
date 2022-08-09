@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">409143401968-ja0k32r847u2v4kku8f4nelkjjrp2qfd.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">409143401968</string>
+    <string name="google_api_key" translatable="false">AIzaSyCa5gApknWmOqc1-Wi6bG4PfwvgDvOue8g</string>
+    <string name="google_app_id" translatable="false">1:409143401968:android:af8b6d30df50c24c0a5135</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCa5gApknWmOqc1-Wi6bG4PfwvgDvOue8g</string>
+    <string name="google_storage_bucket" translatable="false">roman-335712.appspot.com</string>
+    <string name="project_id" translatable="false">roman-335712</string>
+</resources>

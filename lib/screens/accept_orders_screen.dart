@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:ridbrain_project/screens/archive_orders_screens.dart';
 import 'package:ridbrain_project/screens/record_cell.dart';
 import 'package:ridbrain_project/screens/record_screen.dart';
 import 'package:ridbrain_project/services/app_bar.dart';
@@ -29,7 +30,7 @@ class _AcceptOrdersScreenState extends State<AcceptOrdersScreen> {
 
     if (mounted) {
       setState(() {
-        _records = result;
+        _records = result.reversed.toList();
         _loading = false;
       });
     }
@@ -116,6 +117,21 @@ class _AcceptOrdersScreenState extends State<AcceptOrdersScreen> {
           slivers: [
             StandartAppBar(
               title: Text("Принятые заявки"),
+              actions: [
+                Padding(
+                  padding: EdgeInsets.only(right: 15),
+                  child: IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ArchiveOrdersScreen(),
+                          ),
+                        );
+                      },
+                      icon: Icon(Icons.archive_outlined)),
+                )
+              ],
             ),
             _getRecordList(),
           ],

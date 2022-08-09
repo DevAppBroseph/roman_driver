@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/FIRMessaging.h</key>
 		<data>
-		OsN0+pYdlc7jpuGt3jsO+muxTG4=
+		bYX63y25RD/SnOcESRm/Iv66NL8=
 		</data>
 		<key>Headers/FIRMessagingExtensionHelper.h</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		FCMlWgvgZm26IFQ4lt0ZDNfubTk=
+		UzlzPt+qpP8iHI8TVOQvnW/LQS0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -35,11 +35,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			OsN0+pYdlc7jpuGt3jsO+muxTG4=
+			bYX63y25RD/SnOcESRm/Iv66NL8=
 			</data>
 			<key>hash2</key>
 			<data>
-			q7yy8Xor7l1+ePg0bjsAr6aeywiyPNU+OsYxOm++Bb8=
+			FzGRf6c4/q2oHTWrppJw9vQgm6sl+2uNqJ6H/QjP8Jk=
 			</data>
 		</dict>
 		<key>Headers/FIRMessagingExtensionHelper.h</key>

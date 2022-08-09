@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:ridbrain_project/services/objects.dart';
 
 class Record {
@@ -9,6 +8,7 @@ class Record {
     required this.recordNote,
     required this.company,
     required this.recordHistory,
+    required this.cash,
     this.driver,
   });
 
@@ -19,6 +19,7 @@ class Record {
   Company company;
   Driver? driver;
   List<RecordStatus> recordHistory;
+  int cash;
 
   String driverName() {
     if (driver == null) {
@@ -27,47 +28,13 @@ class Record {
     return driver!.driverName;
   }
 
-  Color getColor() {
-    switch (recordStatus) {
-      case StatusRecord.one:
-        return Colors.red.shade100;
-      case StatusRecord.two:
-        return Colors.orange.shade100;
-      case StatusRecord.three:
-        return Colors.blue.shade100;
-      case StatusRecord.four:
-        return Colors.teal.shade100;
-      case StatusRecord.five:
-        return Colors.green.shade100;
-      case StatusRecord.six:
-        return Colors.grey.shade100;
-    }
-  }
-
-  String getStatus() {
-    switch (recordStatus) {
-      case StatusRecord.one:
-        return "Ожидание";
-      case StatusRecord.two:
-        return "Принята";
-      case StatusRecord.three:
-        return "На загрузке";
-      case StatusRecord.four:
-        return "На выгрузке";
-      case StatusRecord.five:
-        return "Выполнена";
-      case StatusRecord.six:
-        return "Отменена";
-    }
-  }
-
   static StatusRecord getStatusFromString(String statusString) {
     for (StatusRecord item in StatusRecord.values) {
       if (item.toString() == statusString) {
         return item;
       }
     }
-    return StatusRecord.one;
+    return StatusRecord.wait;
   }
 
   factory Record.fromJson(Map<String, dynamic> json) => Record(
@@ -80,6 +47,7 @@ class Record {
         driver: json["driver"] != null ? Driver.fromJson(json["driver"]) : null,
         company: Company.fromJson(json["company"]),
         recordStatus: getStatusFromString(json['record_status']),
+        cash: json["cash"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -92,5 +60,6 @@ class Record {
         "driver": driver != null ? driver!.toJson() : "",
         "record_status": recordStatus.name,
         "company": company.toJson(),
+        "cash": cash,
       };
 }

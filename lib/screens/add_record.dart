@@ -46,6 +46,7 @@ class _AddRecordPageState extends State<AddRecordPage> {
   }
 
   void _addRecord(String token) async {
+    var name = Provider.of<DataProvider>(context, listen: false).admin.userName;
     if (_selectedCompany == null) {
       StandartSnackBar.show(
         context,
@@ -62,15 +63,17 @@ class _AddRecordPageState extends State<AddRecordPage> {
       jsonEncode(
         [
           RecordStatus(
-            status: StatusRecord.one,
+            status: StatusRecord.wait,
             date: ConvertDate(context).fromDateTime(DateTime.now().toLocal()),
           ),
         ],
       ),
       _noteController.text,
+      name,
     );
 
     if (result != null) {
+      result.manager = name;
       widget.succes(result);
       Navigator.pop(context);
     }

@@ -32,6 +32,8 @@ class _NewOrdersScreenState extends State<NewOrdersScreen> {
   bool _loading = true;
   bool _first = true;
 
+  bool _update = false;
+
   void _onDaySelected(DateTime selectedDay, DateTime focusedDay) {
     var select = selectedDay.toLocal().add(
           Duration(
@@ -82,7 +84,31 @@ class _NewOrdersScreenState extends State<NewOrdersScreen> {
     }
   }
 
-  Widget _getRecordList() {
+  void _updateAndOpen(String token, String recordId) async {
+    setState(() {
+      _update = true;
+    });
+
+    var result = await Network.getRecord(token, recordId);
+
+    if (result != null) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => RecordScreen(
+            record: result,
+            update: _updateRecord,
+          ),
+        ),
+      );
+    }
+
+    setState(() {
+      _update = false;
+    });
+  }
+
+  Widget _getRecordList(BuildContext context, String token) {
     if (_loading) {
       return SliverToBoxAdapter(
         child: Container(
@@ -91,7 +117,7 @@ class _NewOrdersScreenState extends State<NewOrdersScreen> {
         ),
       );
     }
-    if (_records.forDate(_selectedDay).isEmpty) {
+    if (_records.forDate(context, _selectedDay).isEmpty) {
       return SliverToBoxAdapter(
         child: Container(
           height: 400,
@@ -108,21 +134,13 @@ class _NewOrdersScreenState extends State<NewOrdersScreen> {
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         (context, index) {
-          var record = _records.forDate(_selectedDay)[index];
+          var record = _records.forDate(context, _selectedDay)[index];
           return RecordCell(
             record: record,
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => RecordScreen(
-                  record: record,
-                  update: _updateRecord,
-                ),
-              ),
-            ),
+            onTap: () => _updateAndOpen(token, record.recordId.toString()),
           );
         },
-        childCount: _records.forDate(_selectedDay).length,
+        childCount: _records.forDate(context, _selectedDay).length,
       ),
     );
   }
@@ -144,68 +162,77 @@ class _NewOrdersScreenState extends State<NewOrdersScreen> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: RefreshIndicator(
-        triggerMode: RefreshIndicatorTriggerMode.anywhere,
-        edgeOffset:
-            MediaQuery.of(context).padding.top + AppBar().preferredSize.height,
-        onRefresh: () async {
-          _updateList(provider.driver.driverToken);
-        },
-        child: CustomScrollView(
-          slivers: [
-            StandartAppBar(
-              title: Text("Новые заявки"),
-            ),
-            SliverToBoxAdapter(
-              child: Container(
-                margin: const EdgeInsets.only(top: 5),
-                child: TableCalendar<Record>(
-                  locale: "ru",
-                  firstDay: _firstDay,
-                  lastDay: _lastDay,
-                  headerVisible: false,
-                  focusedDay: _focusedDay,
-                  selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
-                  calendarFormat: CalendarFormat.twoWeeks,
-                  eventLoader: _records.forDate,
-                  startingDayOfWeek: StartingDayOfWeek.monday,
-                  onDaySelected: _onDaySelected,
-                  calendarStyle: CalendarStyle(
-                    markerSize: 7,
-                    markersMaxCount: 3,
-                    markerMargin: const EdgeInsets.all(0.8),
-                    markerDecoration: BoxDecoration(
-                      color: Colors.grey[800],
-                      shape: BoxShape.circle,
-                    ),
-                    todayTextStyle: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    todayDecoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                    ),
-                    selectedDecoration: BoxDecoration(
-                      color: Colors.grey[800],
-                      shape: BoxShape.circle,
+      body: Stack(
+        children: [
+          RefreshIndicator(
+            triggerMode: RefreshIndicatorTriggerMode.anywhere,
+            edgeOffset: MediaQuery.of(context).padding.top +
+                AppBar().preferredSize.height,
+            onRefresh: () async {
+              _updateList(provider.driver.driverToken);
+            },
+            child: CustomScrollView(
+              slivers: [
+                StandartAppBar(
+                  title: Text("Новые заявки"),
+                ),
+                SliverToBoxAdapter(
+                  child: Container(
+                    margin: const EdgeInsets.only(top: 5),
+                    child: TableCalendar<Record>(
+                      locale: "ru",
+                      firstDay: _firstDay,
+                      lastDay: _lastDay,
+                      headerVisible: false,
+                      focusedDay: _focusedDay,
+                      selectedDayPredicate: (day) =>
+                          isSameDay(_selectedDay, day),
+                      calendarFormat: CalendarFormat.twoWeeks,
+                      eventLoader: (date) => _records.forDate(context, date),
+                      startingDayOfWeek: StartingDayOfWeek.monday,
+                      onDaySelected: _onDaySelected,
+                      calendarStyle: CalendarStyle(
+                        markerSize: 7,
+                        markersMaxCount: 3,
+                        markerMargin: const EdgeInsets.all(0.8),
+                        markerDecoration: BoxDecoration(
+                          color: Colors.grey[800],
+                          shape: BoxShape.circle,
+                        ),
+                        todayTextStyle: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        todayDecoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        selectedDecoration: BoxDecoration(
+                          color: Colors.grey[800],
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                      onPageChanged: (focusedDay) {
+                        setState(() {
+                          _focusedDay = focusedDay;
+                        });
+                      },
                     ),
                   ),
-                  onPageChanged: (focusedDay) {
-                    setState(() {
-                      _focusedDay = focusedDay;
-                    });
-                  },
                 ),
-              ),
+                SliverToBoxAdapter(
+                  child: SizedBox(
+                    height: 15,
+                  ),
+                ),
+                _getRecordList(context, provider.driver.driverToken),
+              ],
             ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 15,
-              ),
+          ),
+          if (_update)
+            Center(
+              child: CupertinoActivityIndicator(),
             ),
-            _getRecordList(),
-          ],
-        ),
+        ],
       ),
     );
   }
