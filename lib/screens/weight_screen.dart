@@ -123,11 +123,14 @@ class _WeightScreenState extends State<WeightScreen> {
       ),
     ).then((value) async {
       if (value != null && value is XFile) {
-        await ref
-            .child("order_id${widget.orderId}img${value.name}")
-            .putFile(File(value.path));
-        String imageUrl = await ref.getDownloadURL();
-        _images.add(imageUrl);
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text("Пожалуйста подождите... Загружаем выбранные фото")));
+        final imgRef = ref.child("order_id${widget.orderId}img${value.name}");
+        await ref.putFile(File(value.path));
+        var dowurl = await imgRef.getDownloadURL();
+        final url = dowurl.toString();
+        _images.add(url);
+        ScaffoldMessenger.of(context).hideCurrentSnackBar();
         setState(() {});
       }
     });
