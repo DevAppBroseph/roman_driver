@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:ridbrain_project/services/check_token.dart';
 import 'package:http/http.dart' as http;
@@ -622,13 +624,13 @@ class Network {
   }
 
   Future<Weight?> editWeight(
-    String token,
-    int orderId,
-    List<DriverNomenclature> values,
-    String comment,
-    Company company,
-    String driverName,
-  ) async {
+      String token,
+      int orderId,
+      List<DriverNomenclature> values,
+      String comment,
+      Company company,
+      String driverName,
+      List images) async {
     var address = 'weight.php';
 
     var data = await _request(url: address, params: {
@@ -638,6 +640,7 @@ class Network {
       "comment": comment,
       "company": companyToJson(company),
       "driver_name": driverName,
+      "images": jsonEncode(images)
     });
 
     print(data);

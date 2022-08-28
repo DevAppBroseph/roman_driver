@@ -209,6 +209,7 @@ class _CalendarPickerState extends State<CalendarPicker> {
                     ),
                   );
                 }
+                return null;
               },
             ),
             calendarStyle: CalendarStyle(

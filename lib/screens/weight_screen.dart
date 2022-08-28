@@ -1,10 +1,15 @@
+import 'dart:convert';
+import 'dart:developer';
+import 'dart:io';
+
 import 'package:camera/camera.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:google_place/google_place.dart';
-import 'package:line_icons/line_icons.dart';
+
 import 'package:provider/provider.dart';
 import 'package:ridbrain_project/screens/camera.dart';
 import 'package:ridbrain_project/screens/pick_nomenclature.dart';
+import 'package:ridbrain_project/screens/picture_list.dart';
 import 'package:ridbrain_project/services/buttons.dart';
 import 'package:ridbrain_project/services/constants.dart';
 import 'package:ridbrain_project/services/network.dart';
@@ -12,6 +17,7 @@ import 'package:ridbrain_project/services/objects.dart';
 import 'package:ridbrain_project/services/prefs_handler.dart';
 import 'package:ridbrain_project/services/snack_bar.dart';
 import 'package:ridbrain_project/services/text_field.dart';
+import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 
 class WeightScreen extends StatefulWidget {
   final int orderId;
@@ -27,8 +33,12 @@ class WeightScreen extends StatefulWidget {
 }
 
 class _WeightScreenState extends State<WeightScreen> {
+  Reference ref = FirebaseStorage.instance.ref().child('weight_img');
+
+  List _images = [];
   List<DriverNomenclature> _addedNomenclatures = [
-    DriverNomenclature(nomenclature: null, botling: null, tare: null, net: null)
+    DriverNomenclature(
+        nomenclature: null, botling: null, tare: null, net: null, img: null)
   ];
   var _commentController = TextEditingController();
   bool _loading = false;
@@ -44,13 +54,13 @@ class _WeightScreenState extends State<WeightScreen> {
     // if (_addedNomenclatures.last.nomenclature != null) {
     var provider = Provider.of<DataProvider>(context, listen: false);
     var result = await Network(context).editWeight(
-      provider.driver.driverToken,
-      widget.orderId,
-      _addedNomenclatures,
-      _commentController.text,
-      widget.company,
-      provider.driver.driverName,
-    );
+        provider.driver.driverToken,
+        widget.orderId,
+        _addedNomenclatures,
+        _commentController.text,
+        widget.company,
+        provider.driver.driverName,
+        _images);
     if (result != null) {}
     // }
   }
@@ -71,6 +81,7 @@ class _WeightScreenState extends State<WeightScreen> {
           _addedNomenclatures = result.weight;
         }
         _commentController.text = result.comment;
+        _images = result.images ?? [];
         _loading = false;
       });
     } else {
@@ -80,76 +91,143 @@ class _WeightScreenState extends State<WeightScreen> {
     }
   }
 
+  Future<void> pickImagesFromGallery() async {
+    final List<AssetEntity>? pickedImages = await AssetPicker.pickAssets(
+      context,
+    );
+    if (pickedImages != null) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text("Пожалуйста подождите... Загружаем выбранные фото")));
+      for (var img in pickedImages) {
+        final file = await img.originFile;
+        await ref
+            .child("order_id${widget.orderId}img${img.createDateTime}")
+            .putFile(file!);
+        String imageUrl = await ref.getDownloadURL();
+        _images.add(imageUrl);
+      }
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+    }
+    setState(() {});
+  }
+
+  void takePicture() async {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        fullscreenDialog: true,
+        builder: (context) => CameraPage(),
+      ),
+    ).then((value) async {
+      if (value != null && value is XFile) {
+        await ref
+            .child("order_id${widget.orderId}img${value.name}")
+            .putFile(File(value.path));
+        String imageUrl = await ref.getDownloadURL();
+        _images.add(imageUrl);
+        setState(() {});
+      }
+    });
+  }
+
+  void addVariationSheet(context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (context) => Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ListTile(
+                  onTap: () {
+                    Navigator.pop(context);
+                    pickImagesFromGallery();
+                  },
+                  leading: Icon(Icons.image),
+                  title: Text("Выбрать из галереи"),
+                ),
+                ListTile(
+                  onTap: () {
+                    Navigator.pop(context);
+                    takePicture();
+                  },
+                  leading: Icon(Icons.camera_alt_outlined),
+                  title: Text("Сделать снимок"),
+                ),
+                const SizedBox(
+                  height: 40,
+                )
+              ],
+            ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              fullscreenDialog: true,
-              builder: (context) => CameraPage(),
-            ),
-          ).then((value) {
-            if (value != null) {
-              if (value is XFile) {
-                
-              }
-            }
-          });
-          // showModalBottomSheet(
-          //   context: context,
-          //   backgroundColor: Colors.transparent,
-          //   builder: (context) => Container(
-          //     height: 200,
-          //     decoration: BoxDecoration(
-          //       color: Colors.white,
-          //       borderRadius: BorderRadius.only(
-          //         topLeft: Radius.circular(15),
-          //         topRight: Radius.circular(15),
-          //       ),
-          //     ),
-          //     child: Row(
-          //       children: [
-          //         Expanded(
-          //             flex: 1,
-          //             child: Center(
-          //               child: Column(
-          //                 children: [
-          //                   IconButton(
-          //                     onPressed: () {},
-          //                     icon: Icon(
-          //                       Icons.camera_alt_rounded,
-          //                     ),
-          //                   ),
-          //                 ],
-          //               ),
-          //             )),
-          //         Expanded(
-          //             flex: 1,
-          //             child: Column(
-          //               children: [
-          //                 IconButton(
-          //                   onPressed: () {},
-          //                   icon: Icon(
-          //                     Icons.camera_alt_rounded,
-          //                   ),
-          //                 ),
-          //               ],
-          //             )),
-          //       ],
-          //     ),
-          //   ),
-          // );
-        },
-        backgroundColor: Colors.grey[700],
-        child: Icon(
-          Icons.camera_alt_rounded,
-          color: Colors.white,
-        ),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () async {
+      //     Navigator.push(
+      //       context,
+      //       MaterialPageRoute(
+      //         fullscreenDialog: true,
+      //         builder: (context) => CameraPage(),
+      //       ),
+      //     ).then((value) async {
+      //       if (value != null && value is XFile) {
+      //         setState(() {});
+      //       }
+      //     });
+      //     ///////
+      //     // showModalBottomSheet(
+      //     //   context: context,
+      //     //   backgroundColor: Colors.transparent,
+      //     //   builder: (context) => Container(
+      //     //     height: 200,
+      //     //     decoration: BoxDecoration(
+      //     //       color: Colors.white,
+      //     //       borderRadius: BorderRadius.only(
+      //     //         topLeft: Radius.circular(15),
+      //     //         topRight: Radius.circular(15),
+      //     //       ),
+      //     //     ),
+      //     //     child: Row(
+      //     //       children: [
+      //     //         Expanded(
+      //     //             flex: 1,
+      //     //             child: Center(
+      //     //               child: Column(
+      //     //                 children: [
+      //     //                   IconButton(
+      //     //                     onPressed: () {},
+      //     //                     icon: Icon(
+      //     //                       Icons.camera_alt_rounded,
+      //     //                     ),
+      //     //                   ),
+      //     //                 ],
+      //     //               ),
+      //     //             )),
+      //     //         Expanded(
+      //     //             flex: 1,
+      //     //             child: Column(
+      //     //               children: [
+      //     //                 IconButton(
+      //     //                   onPressed: () {},
+      //     //                   icon: Icon(
+      //     //                     Icons.camera_alt_rounded,
+      //     //                   ),
+      //     //                 ),
+      //     //               ],
+      //     //             )),
+      //     //       ],
+      //     //     ),
+      //     //   ),
+      //     // );
+      //   },
+      //   backgroundColor: Colors.grey[700],
+      //   child: Icon(
+      //     Icons.camera_alt_rounded,
+      //     color: Colors.white,
+      //   ),
+      // ),
       body: GestureDetector(
         onTap: () {
           FocusManager.instance.primaryFocus?.unfocus();
@@ -227,6 +305,28 @@ class _WeightScreenState extends State<WeightScreen> {
                   ),
                 ),
               ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15, top: 40, bottom: 5),
+                child: Text(
+                  'Изображение',
+                  style: TextStyle(color: Colors.grey),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Container(
+                  margin: const EdgeInsets.only(left: 15, right: 15),
+                  child: PictureList(
+                    onAddImage: () => addVariationSheet(context),
+                    onDeleteImage: (p01) {
+                      setState(() {
+                        _images.removeAt(p01);
+                      });
+                    },
+                    images: _images,
+                  )),
+            ),
             if (!_loading)
               SliverToBoxAdapter(
                 child: Padding(

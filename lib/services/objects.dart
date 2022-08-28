@@ -1,6 +1,6 @@
 import 'dart:convert';
-
-import 'package:flutter/material.dart';
+import 'dart:typed_data';
+import 'package:json_annotation/json_annotation.dart';
 
 AuthAnswer authAnswerFromJson(String str) =>
     AuthAnswer.fromJson(json.decode(str));
@@ -860,6 +860,8 @@ class Nomenclature {
 String weightToJson(List<DriverNomenclature> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
+String imagesToJson(List<String> data) => json.encode(data);
+
 String nomenclatureWeightToJson(Nomenclature data) =>
     json.encode(data.toJson());
 
@@ -868,17 +870,18 @@ List<DriverNomenclature> listOfWeightFromJson(String str) =>
         json.decode(str).map((x) => DriverNomenclature.fromJson(x)));
 
 class DriverNomenclature {
-  DriverNomenclature({
-    required this.nomenclature,
-    required this.botling,
-    required this.tare,
-    required this.net,
-  });
+  DriverNomenclature(
+      {required this.nomenclature,
+      required this.botling,
+      required this.tare,
+      required this.net,
+      this.img});
 
   Nomenclature? nomenclature;
   int? botling;
   int? tare;
   int? net;
+  String? img;
 
   factory DriverNomenclature.fromJson(Map<String, dynamic> json) =>
       DriverNomenclature(
@@ -928,26 +931,28 @@ Weight weightFromJson(String str) => Weight.fromJson(json.decode(str));
 // String weightToJson(Weight data) => json.encode(data.toJson());
 
 class Weight {
-  Weight({
-    required this.weightId,
-    required this.orderId,
-    required this.weight,
-    required this.date,
-    required this.comment,
-  });
+  Weight(
+      {required this.weightId,
+      required this.orderId,
+      required this.weight,
+      required this.date,
+      required this.comment,
+      this.images});
 
   int? weightId;
   int orderId;
   List<DriverNomenclature> weight;
   int date;
   String comment;
+  List? images;
 
   factory Weight.fromJson(Map<String, dynamic> json) => Weight(
-        weightId: int.tryParse(json["weight_id"]),
-        orderId: int.parse(json["order_id"]),
+        weightId: int.tryParse(json["weight_id"].toString()),
+        orderId: int.parse(json["order_id"].toString()),
         weight: listOfWeightFromJson(json["weight"]),
-        date: int.parse(json["date"]),
-        comment: json["comment"],
+        date: int.parse(json["date"].toString()),
+        comment: json["comment"].toString(),
+        images: json["images"] == 'null' ? [] : jsonDecode(json["images"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -955,5 +960,20 @@ class Weight {
         "order_id": orderId,
         "weight": weight,
         "date": date,
+        "images": jsonEncode(images)
       };
+}
+
+class Uint8ListConverter implements JsonConverter<Uint8List, List<int>> {
+  const Uint8ListConverter();
+
+  @override
+  Uint8List fromJson(List<int> json) {
+    return Uint8List.fromList(json);
+  }
+
+  @override
+  List<int> toJson(Uint8List object) {
+    return object.toList();
+  }
 }

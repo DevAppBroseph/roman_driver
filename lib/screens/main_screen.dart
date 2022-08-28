@@ -1,4 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
@@ -31,7 +30,7 @@ class _MainScreenState extends State<MainScreen>
   int _currentTabIndex = 0;
   var _first = true;
   late Location _location;
-  String? _firebaseToken = '';
+  // String? _firebaseToken = '';
 
   @override
   void initState() {

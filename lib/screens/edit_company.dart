@@ -5,12 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:google_place/google_place.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:provider/provider.dart';
-import 'package:ridbrain_project/screens/select_driver.dart';
 import 'package:ridbrain_project/services/app_bar.dart';
 import 'package:ridbrain_project/services/buttons.dart';
-import 'package:ridbrain_project/services/constants.dart';
-import 'package:ridbrain_project/services/convert_date.dart';
-import 'package:ridbrain_project/services/extentions.dart';
+
 import 'package:ridbrain_project/services/network.dart';
 import 'package:ridbrain_project/services/objects.dart';
 import 'package:ridbrain_project/services/prefs_handler.dart';

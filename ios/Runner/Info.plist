@@ -26,12 +26,12 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Разрешите доступ к камере для публикации данных об отвесе.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Разрешите доступ к геолокации для отслеживания положения по ходу выполнения заявки.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Разрешите доступ к геолокации для отслеживания положения по ходу выполнения заявки.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Разрешите доступ к камере для публикации данных об отвесе.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Разрешите доступ к микрофону для публикации данных об отвесе.</string>
 	<key>UIBackgroundModes</key>
@@ -47,6 +47,13 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+	<key>NSAllowsArbitraryLoads</key>
+	<true/>
+	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Разрешите доступ к фото, для формирования отчетов.</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
