@@ -100,11 +100,14 @@ class _WeightScreenState extends State<WeightScreen> {
           content: Text("Пожалуйста подождите... Загружаем выбранные фото")));
       for (var img in pickedImages) {
         final file = await img.originFile;
-        await ref
-            .child("order_id${widget.orderId}img${img.createDateTime}")
-            .putFile(file!);
-        String imageUrl = await ref.getDownloadURL();
-        _images.add(imageUrl);
+        final imgRef =
+            ref.child("order_id${widget.orderId}img${img.createDateTime}");
+        await ref.putFile(file!);
+
+        var dowurl = await imgRef.getDownloadURL();
+        final url = dowurl.toString();
+
+        _images.add(url);
       }
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
     }
