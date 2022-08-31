@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/devbroseph/Desktop/Work/Roman_App/build/video_player_android/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/devbroseph/.gradle/caches/transforms-3/f6581c7e664ba028270f3904499353a3/transformed/core-1.7.0/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/devbroseph/Desktop/Work/Roman_App/build/video_player_android/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/devbroseph/.gradle/caches/transforms-3/f6581c7e664ba028270f3904499353a3/transformed/core-1.7.0/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/devbroseph/Desktop/Work/Roman_App/build/video_player_android/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/devbroseph/.gradle/caches/transforms-3/f6581c7e664ba028270f3904499353a3/transformed/core-1.7.0/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/devbroseph/Desktop/Work/Roman_App/build/video_player_android/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/Users/devbroseph/.gradle/caches/transforms-3/f6581c7e664ba028270f3904499353a3/transformed/core-1.7.0/res/layout-v21/notification_action.xml"
+    }
+]

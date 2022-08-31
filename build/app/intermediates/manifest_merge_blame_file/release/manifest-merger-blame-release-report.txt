@@ -5,7 +5,7 @@
 5    android:versionName="1.9" >
 6
 7    <uses-sdk
-8        android:minSdkVersion="20"
+8        android:minSdkVersion="21"
 8-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="31" />
 9-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml
@@ -25,328 +25,348 @@
 15    <uses-permission android:name="android.permission.WAKE_LOCK" />
 15-->[:firebase_analytics] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_analytics/intermediates/library_manifest/release/AndroidManifest.xml:9:5-68
 15-->[:firebase_analytics] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_analytics/intermediates/library_manifest/release/AndroidManifest.xml:9:22-65
-16    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+16    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 16-->[:geolocator_android] /Users/devbroseph/Desktop/Work/Roman_App/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:7:5-77
 16-->[:geolocator_android] /Users/devbroseph/Desktop/Work/Roman_App/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:7:22-74
-17    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-17-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:28:5-82
-17-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:28:22-79
-18    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
-18-->[com.google.android.gms:play-services-measurement-api:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/2debcab6424820276e3a59469e7b438d/transformed/jetified-play-services-measurement-api-21.0.0/AndroidManifest.xml:25:5-79
-18-->[com.google.android.gms:play-services-measurement-api:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/2debcab6424820276e3a59469e7b438d/transformed/jetified-play-services-measurement-api-21.0.0/AndroidManifest.xml:25:22-76
-19    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
-19-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:26:5-110
-19-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:26:22-107
-20
-21    <application
-21-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:9:5-35:19
-22        android:name="androidx.multidex.MultiDexApplication"
-23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-23-->[androidx.core:core:1.6.0] /Users/devbroseph/.gradle/caches/transforms-3/e59cd5b5e8d120cbba56a8101b1dfa1b/transformed/core-1.6.0/AndroidManifest.xml:24:18-86
-24        android:icon="@mipmap/ic_launcher_foreground"
-24-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:11:9-54
-25        android:label="Roman Driver"
-25-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:10:9-37
-26        android:roundIcon="@mipmap/ic_launcher_round"
-26-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:12:9-54
-27        android:usesCleartextTraffic="true" >
-27-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:13:9-44
-28        <activity
-28-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:15:9-31:20
-29            android:name="com.ridbrain.roman.MainActivity"
-29-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:16:13-59
-30            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-30-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:20:13-163
-31            android:exported="true"
-31-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:17:13-36
-32            android:hardwareAccelerated="true"
-32-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:21:13-47
-33            android:launchMode="singleTop"
-33-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:18:13-43
-34            android:theme="@style/LaunchTheme"
-34-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:19:13-47
-35            android:windowSoftInputMode="adjustResize" >
-35-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:22:13-55
-36            <meta-data
-36-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:23:13-26:19
-37                android:name="io.flutter.embedding.android.NormalTheme"
-37-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:24:17-72
-38                android:resource="@style/NormalTheme" />
-38-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:25:17-54
-39
-40            <intent-filter>
-40-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:27:13-30:29
-41                <action android:name="android.intent.action.MAIN" />
-41-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:28:17-68
-41-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:28:25-66
-42
-43                <category android:name="android.intent.category.LAUNCHER" />
-43-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:29:17-76
-43-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:29:27-74
-44            </intent-filter>
-45        </activity>
-46
-47        <meta-data
-47-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:32:9-34:33
-48            android:name="flutterEmbedding"
-48-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:33:13-44
-49            android:value="2" />
-49-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:34:13-30
-50
-51        <service
-51-->[:firebase_analytics] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_analytics/intermediates/library_manifest/release/AndroidManifest.xml:12:9-16:19
-52            android:name="com.google.firebase.components.ComponentDiscoveryService"
-52-->[:firebase_analytics] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_analytics/intermediates/library_manifest/release/AndroidManifest.xml:12:18-89
-53            android:directBootAware="true"
-53-->[com.google.firebase:firebase-common:20.1.1] /Users/devbroseph/.gradle/caches/transforms-3/2b36b5fdb7b227790184e39b9ccc8c6d/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:35:13-43
-54            android:exported="false" >
-54-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:54:13-37
-55            <meta-data
-55-->[:firebase_analytics] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_analytics/intermediates/library_manifest/release/AndroidManifest.xml:13:13-15:85
-56                android:name="com.google.firebase.components:io.flutter.plugins.firebaseanalytics.FlutterFirebaseAppRegistrar"
-56-->[:firebase_analytics] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_analytics/intermediates/library_manifest/release/AndroidManifest.xml:14:17-127
-57                android:value="com.google.firebase.components.ComponentRegistrar" />
-57-->[:firebase_analytics] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_analytics/intermediates/library_manifest/release/AndroidManifest.xml:15:17-82
-58            <meta-data
-58-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:34:13-36:85
-59                android:name="com.google.firebase.components:io.flutter.plugins.firebase.messaging.FlutterFirebaseAppRegistrar"
-59-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:35:17-128
-60                android:value="com.google.firebase.components.ComponentRegistrar" />
-60-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:36:17-82
-61            <meta-data
-61-->[:firebase_core] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_core/intermediates/library_manifest/release/AndroidManifest.xml:9:13-11:85
-62                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
-62-->[:firebase_core] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_core/intermediates/library_manifest/release/AndroidManifest.xml:10:17-124
-63                android:value="com.google.firebase.components.ComponentRegistrar" />
-63-->[:firebase_core] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_core/intermediates/library_manifest/release/AndroidManifest.xml:11:17-82
-64            <meta-data
-64-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:55:13-57:85
-65                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
-65-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:56:17-119
-66                android:value="com.google.firebase.components.ComponentRegistrar" />
-66-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:57:17-82
-67            <meta-data
-67-->[com.google.firebase:firebase-datatransport:18.1.4] /Users/devbroseph/.gradle/caches/transforms-3/87bace20998ac15ff6eed42afd3a555e/transformed/jetified-firebase-datatransport-18.1.4/AndroidManifest.xml:28:13-30:85
-68                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
-68-->[com.google.firebase:firebase-datatransport:18.1.4] /Users/devbroseph/.gradle/caches/transforms-3/87bace20998ac15ff6eed42afd3a555e/transformed/jetified-firebase-datatransport-18.1.4/AndroidManifest.xml:29:17-115
-69                android:value="com.google.firebase.components.ComponentRegistrar" />
-69-->[com.google.firebase:firebase-datatransport:18.1.4] /Users/devbroseph/.gradle/caches/transforms-3/87bace20998ac15ff6eed42afd3a555e/transformed/jetified-firebase-datatransport-18.1.4/AndroidManifest.xml:30:17-82
-70            <meta-data
-70-->[com.google.android.gms:play-services-measurement-api:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/2debcab6424820276e3a59469e7b438d/transformed/jetified-play-services-measurement-api-21.0.0/AndroidManifest.xml:31:13-33:85
-71                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
-71-->[com.google.android.gms:play-services-measurement-api:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/2debcab6424820276e3a59469e7b438d/transformed/jetified-play-services-measurement-api-21.0.0/AndroidManifest.xml:32:17-139
-72                android:value="com.google.firebase.components.ComponentRegistrar" />
-72-->[com.google.android.gms:play-services-measurement-api:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/2debcab6424820276e3a59469e7b438d/transformed/jetified-play-services-measurement-api-21.0.0/AndroidManifest.xml:33:17-82
-73            <meta-data
-73-->[com.google.firebase:firebase-installations:17.0.1] /Users/devbroseph/.gradle/caches/transforms-3/fe9303bcfd66c3889636dfaed901e335/transformed/jetified-firebase-installations-17.0.1/AndroidManifest.xml:18:13-20:85
-74                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-74-->[com.google.firebase:firebase-installations:17.0.1] /Users/devbroseph/.gradle/caches/transforms-3/fe9303bcfd66c3889636dfaed901e335/transformed/jetified-firebase-installations-17.0.1/AndroidManifest.xml:19:17-127
-75                android:value="com.google.firebase.components.ComponentRegistrar" />
-75-->[com.google.firebase:firebase-installations:17.0.1] /Users/devbroseph/.gradle/caches/transforms-3/fe9303bcfd66c3889636dfaed901e335/transformed/jetified-firebase-installations-17.0.1/AndroidManifest.xml:20:17-82
-76        </service>
-77        <service
-77-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:12:9-15:72
-78            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService"
-78-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:13:13-107
-79            android:exported="false"
-79-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:14:13-37
-80            android:permission="android.permission.BIND_JOB_SERVICE" />
-80-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:15:13-69
-81        <service
-81-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:16:9-22:19
-82            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingService"
-82-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:17:13-97
-83            android:exported="false" >
-83-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:18:13-37
-84            <intent-filter>
-84-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:19:13-21:29
-85                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-85-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:20:17-78
-85-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:20:25-75
-86            </intent-filter>
-87        </service>
-88
-89        <receiver
-89-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:24:9-31:20
-90            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingReceiver"
-90-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:25:13-98
-91            android:exported="true"
-91-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:26:13-36
-92            android:permission="com.google.android.c2dm.permission.SEND" >
-92-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:27:13-73
-93            <intent-filter>
-93-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:28:13-30:29
-94                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-94-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:29:17-81
-94-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:29:25-78
-95            </intent-filter>
-96        </receiver>
-97
-98        <provider
-98-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:39:9-43:38
-99            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider"
-99-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:40:13-102
-100            android:authorities="com.ridbrain.roman.flutterfirebasemessaginginitprovider"
-100-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:41:13-88
-101            android:exported="false"
-101-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:42:13-37
-102            android:initOrder="99" />
-102-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:43:13-35
-103
-104        <service
-104-->[:geolocator_android] /Users/devbroseph/Desktop/Work/Roman_App/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:10:9-14:56
-105            android:name="com.baseflow.geolocator.GeolocatorLocationService"
-105-->[:geolocator_android] /Users/devbroseph/Desktop/Work/Roman_App/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:11:13-77
-106            android:enabled="true"
-106-->[:geolocator_android] /Users/devbroseph/Desktop/Work/Roman_App/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:12:13-35
-107            android:exported="false"
-107-->[:geolocator_android] /Users/devbroseph/Desktop/Work/Roman_App/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:13:13-37
-108            android:foregroundServiceType="location" />
-108-->[:geolocator_android] /Users/devbroseph/Desktop/Work/Roman_App/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:14:13-53
-109
-110        <activity
-110-->[:url_launcher_android] /Users/devbroseph/Desktop/Work/Roman_App/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:8:9-11:74
-111            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-111-->[:url_launcher_android] /Users/devbroseph/Desktop/Work/Roman_App/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:9:13-74
-112            android:exported="false"
-112-->[:url_launcher_android] /Users/devbroseph/Desktop/Work/Roman_App/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:10:13-37
-113            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-113-->[:url_launcher_android] /Users/devbroseph/Desktop/Work/Roman_App/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:11:13-71
-114
-115        <uses-library
-115-->[androidx.window:window:1.0.0-beta04] /Users/devbroseph/.gradle/caches/transforms-3/b214c85d3646a9d5e79c7f09716381b6/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
-116            android:name="androidx.window.extensions"
-116-->[androidx.window:window:1.0.0-beta04] /Users/devbroseph/.gradle/caches/transforms-3/b214c85d3646a9d5e79c7f09716381b6/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
-117            android:required="false" />
-117-->[androidx.window:window:1.0.0-beta04] /Users/devbroseph/.gradle/caches/transforms-3/b214c85d3646a9d5e79c7f09716381b6/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
-118        <uses-library
-118-->[androidx.window:window:1.0.0-beta04] /Users/devbroseph/.gradle/caches/transforms-3/b214c85d3646a9d5e79c7f09716381b6/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
-119            android:name="androidx.window.sidecar"
-119-->[androidx.window:window:1.0.0-beta04] /Users/devbroseph/.gradle/caches/transforms-3/b214c85d3646a9d5e79c7f09716381b6/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
-120            android:required="false" />
-120-->[androidx.window:window:1.0.0-beta04] /Users/devbroseph/.gradle/caches/transforms-3/b214c85d3646a9d5e79c7f09716381b6/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
-121
-122        <receiver
-122-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:31:9-38:20
-123            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-123-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:32:13-78
-124            android:exported="true"
-124-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:33:13-36
-125            android:permission="com.google.android.c2dm.permission.SEND" >
-125-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:34:13-73
-126            <intent-filter>
-126-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:28:13-30:29
-127                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-127-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:29:17-81
-127-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:29:25-78
-128            </intent-filter>
-129        </receiver>
-130        <!--
-131             FirebaseMessagingService performs security checks at runtime,
-132             but set to not exported to explicitly avoid allowing another app to call it.
-133        -->
-134        <service
-134-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:44:9-51:19
-135            android:name="com.google.firebase.messaging.FirebaseMessagingService"
-135-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:45:13-82
-136            android:directBootAware="true"
-136-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:46:13-43
-137            android:exported="false" >
-137-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:47:13-37
-138            <intent-filter android:priority="-500" >
-138-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:19:13-21:29
-139                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-139-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:20:17-78
-139-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:20:25-75
-140            </intent-filter>
-141        </service>
+17    <uses-permission android:name="android.permission.CAMERA" />
+17-->[:camera_android] /Users/devbroseph/Desktop/Work/Roman_App/build/camera_android/intermediates/library_manifest/release/AndroidManifest.xml:9:5-65
+17-->[:camera_android] /Users/devbroseph/Desktop/Work/Roman_App/build/camera_android/intermediates/library_manifest/release/AndroidManifest.xml:9:22-62
+18    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+18-->[:camera_android] /Users/devbroseph/Desktop/Work/Roman_App/build/camera_android/intermediates/library_manifest/release/AndroidManifest.xml:10:5-71
+18-->[:camera_android] /Users/devbroseph/Desktop/Work/Roman_App/build/camera_android/intermediates/library_manifest/release/AndroidManifest.xml:10:22-68
+19    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+19-->[:photo_manager] /Users/devbroseph/Desktop/Work/Roman_App/build/photo_manager/intermediates/library_manifest/release/AndroidManifest.xml:7:5-80
+19-->[:photo_manager] /Users/devbroseph/Desktop/Work/Roman_App/build/photo_manager/intermediates/library_manifest/release/AndroidManifest.xml:7:22-77
+20    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+20-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:28:5-82
+20-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:28:22-79
+21    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+21-->[com.google.android.gms:play-services-measurement-api:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/2debcab6424820276e3a59469e7b438d/transformed/jetified-play-services-measurement-api-21.0.0/AndroidManifest.xml:25:5-79
+21-->[com.google.android.gms:play-services-measurement-api:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/2debcab6424820276e3a59469e7b438d/transformed/jetified-play-services-measurement-api-21.0.0/AndroidManifest.xml:25:22-76
+22    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+22-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:26:5-110
+22-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:26:22-107
+23
+24    <application
+24-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:9:5-35:19
+25        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+25-->[androidx.core:core:1.7.0] /Users/devbroseph/.gradle/caches/transforms-3/f6581c7e664ba028270f3904499353a3/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
+26        android:icon="@mipmap/ic_launcher_foreground"
+26-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:11:9-54
+27        android:label="Roman Driver"
+27-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:10:9-37
+28        android:roundIcon="@mipmap/ic_launcher_round"
+28-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:12:9-54
+29        android:usesCleartextTraffic="true" >
+29-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:13:9-44
+30        <activity
+30-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:15:9-31:20
+31            android:name="com.ridbrain.roman.MainActivity"
+31-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:16:13-59
+32            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+32-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:20:13-163
+33            android:exported="true"
+33-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:17:13-36
+34            android:hardwareAccelerated="true"
+34-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:21:13-47
+35            android:launchMode="singleTop"
+35-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:18:13-43
+36            android:theme="@style/LaunchTheme"
+36-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:19:13-47
+37            android:windowSoftInputMode="adjustResize" >
+37-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:22:13-55
+38            <meta-data
+38-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:23:13-26:19
+39                android:name="io.flutter.embedding.android.NormalTheme"
+39-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:24:17-72
+40                android:resource="@style/NormalTheme" />
+40-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:25:17-54
+41
+42            <intent-filter>
+42-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:27:13-30:29
+43                <action android:name="android.intent.action.MAIN" />
+43-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:28:17-68
+43-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:28:25-66
+44
+45                <category android:name="android.intent.category.LAUNCHER" />
+45-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:29:17-76
+45-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:29:27-74
+46            </intent-filter>
+47        </activity>
+48
+49        <meta-data
+49-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:32:9-34:33
+50            android:name="flutterEmbedding"
+50-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:33:13-44
+51            android:value="2" />
+51-->/Users/devbroseph/Desktop/Work/Roman_App/android/app/src/main/AndroidManifest.xml:34:13-30
+52
+53        <service
+53-->[:firebase_analytics] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_analytics/intermediates/library_manifest/release/AndroidManifest.xml:12:9-16:19
+54            android:name="com.google.firebase.components.ComponentDiscoveryService"
+54-->[:firebase_analytics] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_analytics/intermediates/library_manifest/release/AndroidManifest.xml:12:18-89
+55            android:directBootAware="true"
+55-->[com.google.firebase:firebase-common:20.1.1] /Users/devbroseph/.gradle/caches/transforms-3/2b36b5fdb7b227790184e39b9ccc8c6d/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:35:13-43
+56            android:exported="false" >
+56-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:54:13-37
+57            <meta-data
+57-->[:firebase_analytics] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_analytics/intermediates/library_manifest/release/AndroidManifest.xml:13:13-15:85
+58                android:name="com.google.firebase.components:io.flutter.plugins.firebase.analytics.FlutterFirebaseAppRegistrar"
+58-->[:firebase_analytics] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_analytics/intermediates/library_manifest/release/AndroidManifest.xml:14:17-128
+59                android:value="com.google.firebase.components.ComponentRegistrar" />
+59-->[:firebase_analytics] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_analytics/intermediates/library_manifest/release/AndroidManifest.xml:15:17-82
+60            <meta-data
+60-->[:firebase_storage] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_storage/intermediates/library_manifest/release/AndroidManifest.xml:9:13-11:85
+61                android:name="com.google.firebase.components:io.flutter.plugins.firebase.storage.FlutterFirebaseAppRegistrar"
+61-->[:firebase_storage] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_storage/intermediates/library_manifest/release/AndroidManifest.xml:10:17-126
+62                android:value="com.google.firebase.components.ComponentRegistrar" />
+62-->[:firebase_storage] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_storage/intermediates/library_manifest/release/AndroidManifest.xml:11:17-82
+63            <meta-data
+63-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:34:13-36:85
+64                android:name="com.google.firebase.components:io.flutter.plugins.firebase.messaging.FlutterFirebaseAppRegistrar"
+64-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:35:17-128
+65                android:value="com.google.firebase.components.ComponentRegistrar" />
+65-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:36:17-82
+66            <meta-data
+66-->[:firebase_core] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_core/intermediates/library_manifest/release/AndroidManifest.xml:9:13-11:85
+67                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+67-->[:firebase_core] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_core/intermediates/library_manifest/release/AndroidManifest.xml:10:17-124
+68                android:value="com.google.firebase.components.ComponentRegistrar" />
+68-->[:firebase_core] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_core/intermediates/library_manifest/release/AndroidManifest.xml:11:17-82
+69            <meta-data
+69-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:55:13-57:85
+70                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+70-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:56:17-119
+71                android:value="com.google.firebase.components.ComponentRegistrar" />
+71-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:57:17-82
+72            <meta-data
+72-->[com.google.firebase:firebase-datatransport:18.1.4] /Users/devbroseph/.gradle/caches/transforms-3/87bace20998ac15ff6eed42afd3a555e/transformed/jetified-firebase-datatransport-18.1.4/AndroidManifest.xml:28:13-30:85
+73                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+73-->[com.google.firebase:firebase-datatransport:18.1.4] /Users/devbroseph/.gradle/caches/transforms-3/87bace20998ac15ff6eed42afd3a555e/transformed/jetified-firebase-datatransport-18.1.4/AndroidManifest.xml:29:17-115
+74                android:value="com.google.firebase.components.ComponentRegistrar" />
+74-->[com.google.firebase:firebase-datatransport:18.1.4] /Users/devbroseph/.gradle/caches/transforms-3/87bace20998ac15ff6eed42afd3a555e/transformed/jetified-firebase-datatransport-18.1.4/AndroidManifest.xml:30:17-82
+75            <meta-data
+75-->[com.google.firebase:firebase-storage:20.0.1] /Users/devbroseph/.gradle/caches/transforms-3/2b502abe953dbf2dc02c615077740ab8/transformed/jetified-firebase-storage-20.0.1/AndroidManifest.xml:33:13-35:85
+76                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+76-->[com.google.firebase:firebase-storage:20.0.1] /Users/devbroseph/.gradle/caches/transforms-3/2b502abe953dbf2dc02c615077740ab8/transformed/jetified-firebase-storage-20.0.1/AndroidManifest.xml:34:17-107
+77                android:value="com.google.firebase.components.ComponentRegistrar" />
+77-->[com.google.firebase:firebase-storage:20.0.1] /Users/devbroseph/.gradle/caches/transforms-3/2b502abe953dbf2dc02c615077740ab8/transformed/jetified-firebase-storage-20.0.1/AndroidManifest.xml:35:17-82
+78            <meta-data
+78-->[com.google.android.gms:play-services-measurement-api:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/2debcab6424820276e3a59469e7b438d/transformed/jetified-play-services-measurement-api-21.0.0/AndroidManifest.xml:31:13-33:85
+79                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+79-->[com.google.android.gms:play-services-measurement-api:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/2debcab6424820276e3a59469e7b438d/transformed/jetified-play-services-measurement-api-21.0.0/AndroidManifest.xml:32:17-139
+80                android:value="com.google.firebase.components.ComponentRegistrar" />
+80-->[com.google.android.gms:play-services-measurement-api:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/2debcab6424820276e3a59469e7b438d/transformed/jetified-play-services-measurement-api-21.0.0/AndroidManifest.xml:33:17-82
+81            <meta-data
+81-->[com.google.firebase:firebase-installations:17.0.1] /Users/devbroseph/.gradle/caches/transforms-3/fe9303bcfd66c3889636dfaed901e335/transformed/jetified-firebase-installations-17.0.1/AndroidManifest.xml:18:13-20:85
+82                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+82-->[com.google.firebase:firebase-installations:17.0.1] /Users/devbroseph/.gradle/caches/transforms-3/fe9303bcfd66c3889636dfaed901e335/transformed/jetified-firebase-installations-17.0.1/AndroidManifest.xml:19:17-127
+83                android:value="com.google.firebase.components.ComponentRegistrar" />
+83-->[com.google.firebase:firebase-installations:17.0.1] /Users/devbroseph/.gradle/caches/transforms-3/fe9303bcfd66c3889636dfaed901e335/transformed/jetified-firebase-installations-17.0.1/AndroidManifest.xml:20:17-82
+84        </service>
+85        <service
+85-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:12:9-15:72
+86            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService"
+86-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:13:13-107
+87            android:exported="false"
+87-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:14:13-37
+88            android:permission="android.permission.BIND_JOB_SERVICE" />
+88-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:15:13-69
+89        <service
+89-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:16:9-22:19
+90            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingService"
+90-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:17:13-97
+91            android:exported="false" >
+91-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:18:13-37
+92            <intent-filter>
+92-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:19:13-21:29
+93                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+93-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:20:17-78
+93-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:20:25-75
+94            </intent-filter>
+95        </service>
+96
+97        <receiver
+97-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:24:9-31:20
+98            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingReceiver"
+98-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:25:13-98
+99            android:exported="true"
+99-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:26:13-36
+100            android:permission="com.google.android.c2dm.permission.SEND" >
+100-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:27:13-73
+101            <intent-filter>
+101-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:28:13-30:29
+102                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+102-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:29:17-81
+102-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:29:25-78
+103            </intent-filter>
+104        </receiver>
+105
+106        <provider
+106-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:39:9-43:38
+107            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider"
+107-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:40:13-102
+108            android:authorities="com.ridbrain.roman.flutterfirebasemessaginginitprovider"
+108-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:41:13-88
+109            android:exported="false"
+109-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:42:13-37
+110            android:initOrder="99" />
+110-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:43:13-35
+111
+112        <service
+112-->[:geolocator_android] /Users/devbroseph/Desktop/Work/Roman_App/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:10:9-14:56
+113            android:name="com.baseflow.geolocator.GeolocatorLocationService"
+113-->[:geolocator_android] /Users/devbroseph/Desktop/Work/Roman_App/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:11:13-77
+114            android:enabled="true"
+114-->[:geolocator_android] /Users/devbroseph/Desktop/Work/Roman_App/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:12:13-35
+115            android:exported="false"
+115-->[:geolocator_android] /Users/devbroseph/Desktop/Work/Roman_App/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:13:13-37
+116            android:foregroundServiceType="location" />
+116-->[:geolocator_android] /Users/devbroseph/Desktop/Work/Roman_App/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:14:13-53
+117
+118        <activity
+118-->[:url_launcher_android] /Users/devbroseph/Desktop/Work/Roman_App/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:8:9-11:74
+119            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+119-->[:url_launcher_android] /Users/devbroseph/Desktop/Work/Roman_App/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:9:13-74
+120            android:exported="false"
+120-->[:url_launcher_android] /Users/devbroseph/Desktop/Work/Roman_App/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:10:13-37
+121            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+121-->[:url_launcher_android] /Users/devbroseph/Desktop/Work/Roman_App/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:11:13-71
+122
+123        <uses-library
+123-->[androidx.window:window:1.0.0-beta04] /Users/devbroseph/.gradle/caches/transforms-3/b214c85d3646a9d5e79c7f09716381b6/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+124            android:name="androidx.window.extensions"
+124-->[androidx.window:window:1.0.0-beta04] /Users/devbroseph/.gradle/caches/transforms-3/b214c85d3646a9d5e79c7f09716381b6/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+125            android:required="false" />
+125-->[androidx.window:window:1.0.0-beta04] /Users/devbroseph/.gradle/caches/transforms-3/b214c85d3646a9d5e79c7f09716381b6/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+126        <uses-library
+126-->[androidx.window:window:1.0.0-beta04] /Users/devbroseph/.gradle/caches/transforms-3/b214c85d3646a9d5e79c7f09716381b6/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+127            android:name="androidx.window.sidecar"
+127-->[androidx.window:window:1.0.0-beta04] /Users/devbroseph/.gradle/caches/transforms-3/b214c85d3646a9d5e79c7f09716381b6/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+128            android:required="false" />
+128-->[androidx.window:window:1.0.0-beta04] /Users/devbroseph/.gradle/caches/transforms-3/b214c85d3646a9d5e79c7f09716381b6/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+129
+130        <receiver
+130-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:31:9-38:20
+131            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+131-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:32:13-78
+132            android:exported="true"
+132-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:33:13-36
+133            android:permission="com.google.android.c2dm.permission.SEND" >
+133-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:34:13-73
+134            <intent-filter>
+134-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:28:13-30:29
+135                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+135-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:29:17-81
+135-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:29:25-78
+136            </intent-filter>
+137        </receiver>
+138        <!--
+139             FirebaseMessagingService performs security checks at runtime,
+140             but set to not exported to explicitly avoid allowing another app to call it.
+141        -->
 142        <service
-142-->[com.google.android.datatransport:transport-backend-cct:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/45196e347e2ee865d911968bdaeefe49/transformed/jetified-transport-backend-cct-3.1.5/AndroidManifest.xml:29:9-35:19
-143            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-143-->[com.google.android.datatransport:transport-backend-cct:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/45196e347e2ee865d911968bdaeefe49/transformed/jetified-transport-backend-cct-3.1.5/AndroidManifest.xml:30:13-103
-144            android:exported="false" >
-144-->[com.google.android.datatransport:transport-backend-cct:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/45196e347e2ee865d911968bdaeefe49/transformed/jetified-transport-backend-cct-3.1.5/AndroidManifest.xml:31:13-37
-145            <meta-data
-145-->[com.google.android.datatransport:transport-backend-cct:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/45196e347e2ee865d911968bdaeefe49/transformed/jetified-transport-backend-cct-3.1.5/AndroidManifest.xml:32:13-34:39
-146                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-146-->[com.google.android.datatransport:transport-backend-cct:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/45196e347e2ee865d911968bdaeefe49/transformed/jetified-transport-backend-cct-3.1.5/AndroidManifest.xml:33:17-94
-147                android:value="cct" />
-147-->[com.google.android.datatransport:transport-backend-cct:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/45196e347e2ee865d911968bdaeefe49/transformed/jetified-transport-backend-cct-3.1.5/AndroidManifest.xml:34:17-36
-148        </service>
-149        <service
-149-->[com.google.android.datatransport:transport-runtime:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/29c7842ebf5c46cdb6540a4b2594ae31/transformed/jetified-transport-runtime-3.1.5/AndroidManifest.xml:26:9-30:19
-150            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-150-->[com.google.android.datatransport:transport-runtime:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/29c7842ebf5c46cdb6540a4b2594ae31/transformed/jetified-transport-runtime-3.1.5/AndroidManifest.xml:27:13-117
-151            android:exported="false"
-151-->[com.google.android.datatransport:transport-runtime:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/29c7842ebf5c46cdb6540a4b2594ae31/transformed/jetified-transport-runtime-3.1.5/AndroidManifest.xml:28:13-37
-152            android:permission="android.permission.BIND_JOB_SERVICE" >
-152-->[com.google.android.datatransport:transport-runtime:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/29c7842ebf5c46cdb6540a4b2594ae31/transformed/jetified-transport-runtime-3.1.5/AndroidManifest.xml:29:13-69
-153        </service>
-154
-155        <receiver
-155-->[com.google.android.datatransport:transport-runtime:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/29c7842ebf5c46cdb6540a4b2594ae31/transformed/jetified-transport-runtime-3.1.5/AndroidManifest.xml:32:9-34:40
-156            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-156-->[com.google.android.datatransport:transport-runtime:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/29c7842ebf5c46cdb6540a4b2594ae31/transformed/jetified-transport-runtime-3.1.5/AndroidManifest.xml:33:13-132
-157            android:exported="false" />
-157-->[com.google.android.datatransport:transport-runtime:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/29c7842ebf5c46cdb6540a4b2594ae31/transformed/jetified-transport-runtime-3.1.5/AndroidManifest.xml:34:13-37
-158
-159        <provider
-159-->[com.google.firebase:firebase-common:20.1.1] /Users/devbroseph/.gradle/caches/transforms-3/2b36b5fdb7b227790184e39b9ccc8c6d/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:26:9-31:39
-160            android:name="com.google.firebase.provider.FirebaseInitProvider"
-160-->[com.google.firebase:firebase-common:20.1.1] /Users/devbroseph/.gradle/caches/transforms-3/2b36b5fdb7b227790184e39b9ccc8c6d/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:27:13-77
-161            android:authorities="com.ridbrain.roman.firebaseinitprovider"
-161-->[com.google.firebase:firebase-common:20.1.1] /Users/devbroseph/.gradle/caches/transforms-3/2b36b5fdb7b227790184e39b9ccc8c6d/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:28:13-72
-162            android:directBootAware="true"
-162-->[com.google.firebase:firebase-common:20.1.1] /Users/devbroseph/.gradle/caches/transforms-3/2b36b5fdb7b227790184e39b9ccc8c6d/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:29:13-43
-163            android:exported="false"
-163-->[com.google.firebase:firebase-common:20.1.1] /Users/devbroseph/.gradle/caches/transforms-3/2b36b5fdb7b227790184e39b9ccc8c6d/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:30:13-37
-164            android:initOrder="100" />
-164-->[com.google.firebase:firebase-common:20.1.1] /Users/devbroseph/.gradle/caches/transforms-3/2b36b5fdb7b227790184e39b9ccc8c6d/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:31:13-36
-165
-166        <receiver
-166-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:29:9-33:20
-167            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
-167-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:30:13-85
-168            android:enabled="true"
-168-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:31:13-35
-169            android:exported="false" >
-169-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:32:13-37
-170        </receiver>
-171
-172        <service
-172-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:35:9-38:40
-173            android:name="com.google.android.gms.measurement.AppMeasurementService"
-173-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:36:13-84
-174            android:enabled="true"
-174-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:37:13-35
-175            android:exported="false" />
-175-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:38:13-37
-176        <service
-176-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:39:9-43:72
-177            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
-177-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:40:13-87
-178            android:enabled="true"
-178-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:41:13-35
-179            android:exported="false"
-179-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:42:13-37
-180            android:permission="android.permission.BIND_JOB_SERVICE" />
-180-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:43:13-69
-181
-182        <activity
-182-->[com.google.android.gms:play-services-base:18.0.1] /Users/devbroseph/.gradle/caches/transforms-3/de309fcbe7e81ed5e03a378ee8f9f957/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
-183            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-183-->[com.google.android.gms:play-services-base:18.0.1] /Users/devbroseph/.gradle/caches/transforms-3/de309fcbe7e81ed5e03a378ee8f9f957/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
-184            android:exported="false"
-184-->[com.google.android.gms:play-services-base:18.0.1] /Users/devbroseph/.gradle/caches/transforms-3/de309fcbe7e81ed5e03a378ee8f9f957/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
-185            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-185-->[com.google.android.gms:play-services-base:18.0.1] /Users/devbroseph/.gradle/caches/transforms-3/de309fcbe7e81ed5e03a378ee8f9f957/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
-186
-187        <meta-data
-187-->[com.google.android.gms:play-services-basement:18.0.0] /Users/devbroseph/.gradle/caches/transforms-3/2a59112839be71ac80c64bb6108e566a/transformed/jetified-play-services-basement-18.0.0/AndroidManifest.xml:21:9-23:69
-188            android:name="com.google.android.gms.version"
-188-->[com.google.android.gms:play-services-basement:18.0.0] /Users/devbroseph/.gradle/caches/transforms-3/2a59112839be71ac80c64bb6108e566a/transformed/jetified-play-services-basement-18.0.0/AndroidManifest.xml:22:13-58
-189            android:value="@integer/google_play_services_version" />
-189-->[com.google.android.gms:play-services-basement:18.0.0] /Users/devbroseph/.gradle/caches/transforms-3/2a59112839be71ac80c64bb6108e566a/transformed/jetified-play-services-basement-18.0.0/AndroidManifest.xml:23:13-66
-190    </application>
-191
-192</manifest>
+142-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:44:9-51:19
+143            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+143-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:45:13-82
+144            android:directBootAware="true"
+144-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:46:13-43
+145            android:exported="false" >
+145-->[com.google.firebase:firebase-messaging:23.0.5] /Users/devbroseph/.gradle/caches/transforms-3/337eea68056aa23d1dc940653c2afcac/transformed/jetified-firebase-messaging-23.0.5/AndroidManifest.xml:47:13-37
+146            <intent-filter android:priority="-500" >
+146-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:19:13-21:29
+147                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+147-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:20:17-78
+147-->[:firebase_messaging] /Users/devbroseph/Desktop/Work/Roman_App/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:20:25-75
+148            </intent-filter>
+149        </service>
+150        <service
+150-->[com.google.android.datatransport:transport-backend-cct:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/45196e347e2ee865d911968bdaeefe49/transformed/jetified-transport-backend-cct-3.1.5/AndroidManifest.xml:29:9-35:19
+151            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+151-->[com.google.android.datatransport:transport-backend-cct:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/45196e347e2ee865d911968bdaeefe49/transformed/jetified-transport-backend-cct-3.1.5/AndroidManifest.xml:30:13-103
+152            android:exported="false" >
+152-->[com.google.android.datatransport:transport-backend-cct:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/45196e347e2ee865d911968bdaeefe49/transformed/jetified-transport-backend-cct-3.1.5/AndroidManifest.xml:31:13-37
+153            <meta-data
+153-->[com.google.android.datatransport:transport-backend-cct:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/45196e347e2ee865d911968bdaeefe49/transformed/jetified-transport-backend-cct-3.1.5/AndroidManifest.xml:32:13-34:39
+154                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+154-->[com.google.android.datatransport:transport-backend-cct:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/45196e347e2ee865d911968bdaeefe49/transformed/jetified-transport-backend-cct-3.1.5/AndroidManifest.xml:33:17-94
+155                android:value="cct" />
+155-->[com.google.android.datatransport:transport-backend-cct:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/45196e347e2ee865d911968bdaeefe49/transformed/jetified-transport-backend-cct-3.1.5/AndroidManifest.xml:34:17-36
+156        </service>
+157        <service
+157-->[com.google.android.datatransport:transport-runtime:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/29c7842ebf5c46cdb6540a4b2594ae31/transformed/jetified-transport-runtime-3.1.5/AndroidManifest.xml:26:9-30:19
+158            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+158-->[com.google.android.datatransport:transport-runtime:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/29c7842ebf5c46cdb6540a4b2594ae31/transformed/jetified-transport-runtime-3.1.5/AndroidManifest.xml:27:13-117
+159            android:exported="false"
+159-->[com.google.android.datatransport:transport-runtime:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/29c7842ebf5c46cdb6540a4b2594ae31/transformed/jetified-transport-runtime-3.1.5/AndroidManifest.xml:28:13-37
+160            android:permission="android.permission.BIND_JOB_SERVICE" >
+160-->[com.google.android.datatransport:transport-runtime:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/29c7842ebf5c46cdb6540a4b2594ae31/transformed/jetified-transport-runtime-3.1.5/AndroidManifest.xml:29:13-69
+161        </service>
+162
+163        <receiver
+163-->[com.google.android.datatransport:transport-runtime:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/29c7842ebf5c46cdb6540a4b2594ae31/transformed/jetified-transport-runtime-3.1.5/AndroidManifest.xml:32:9-34:40
+164            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+164-->[com.google.android.datatransport:transport-runtime:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/29c7842ebf5c46cdb6540a4b2594ae31/transformed/jetified-transport-runtime-3.1.5/AndroidManifest.xml:33:13-132
+165            android:exported="false" />
+165-->[com.google.android.datatransport:transport-runtime:3.1.5] /Users/devbroseph/.gradle/caches/transforms-3/29c7842ebf5c46cdb6540a4b2594ae31/transformed/jetified-transport-runtime-3.1.5/AndroidManifest.xml:34:13-37
+166
+167        <provider
+167-->[com.google.firebase:firebase-common:20.1.1] /Users/devbroseph/.gradle/caches/transforms-3/2b36b5fdb7b227790184e39b9ccc8c6d/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:26:9-31:39
+168            android:name="com.google.firebase.provider.FirebaseInitProvider"
+168-->[com.google.firebase:firebase-common:20.1.1] /Users/devbroseph/.gradle/caches/transforms-3/2b36b5fdb7b227790184e39b9ccc8c6d/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:27:13-77
+169            android:authorities="com.ridbrain.roman.firebaseinitprovider"
+169-->[com.google.firebase:firebase-common:20.1.1] /Users/devbroseph/.gradle/caches/transforms-3/2b36b5fdb7b227790184e39b9ccc8c6d/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:28:13-72
+170            android:directBootAware="true"
+170-->[com.google.firebase:firebase-common:20.1.1] /Users/devbroseph/.gradle/caches/transforms-3/2b36b5fdb7b227790184e39b9ccc8c6d/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:29:13-43
+171            android:exported="false"
+171-->[com.google.firebase:firebase-common:20.1.1] /Users/devbroseph/.gradle/caches/transforms-3/2b36b5fdb7b227790184e39b9ccc8c6d/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:30:13-37
+172            android:initOrder="100" />
+172-->[com.google.firebase:firebase-common:20.1.1] /Users/devbroseph/.gradle/caches/transforms-3/2b36b5fdb7b227790184e39b9ccc8c6d/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:31:13-36
+173
+174        <receiver
+174-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:29:9-33:20
+175            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+175-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:30:13-85
+176            android:enabled="true"
+176-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:31:13-35
+177            android:exported="false" >
+177-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:32:13-37
+178        </receiver>
+179
+180        <service
+180-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:35:9-38:40
+181            android:name="com.google.android.gms.measurement.AppMeasurementService"
+181-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:36:13-84
+182            android:enabled="true"
+182-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:37:13-35
+183            android:exported="false" />
+183-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:38:13-37
+184        <service
+184-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:39:9-43:72
+185            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+185-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:40:13-87
+186            android:enabled="true"
+186-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:41:13-35
+187            android:exported="false"
+187-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:42:13-37
+188            android:permission="android.permission.BIND_JOB_SERVICE" />
+188-->[com.google.android.gms:play-services-measurement:21.0.0] /Users/devbroseph/.gradle/caches/transforms-3/e982ab9ab5c899dd3244e74873f71253/transformed/jetified-play-services-measurement-21.0.0/AndroidManifest.xml:43:13-69
+189
+190        <activity
+190-->[com.google.android.gms:play-services-base:18.0.1] /Users/devbroseph/.gradle/caches/transforms-3/de309fcbe7e81ed5e03a378ee8f9f957/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+191            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+191-->[com.google.android.gms:play-services-base:18.0.1] /Users/devbroseph/.gradle/caches/transforms-3/de309fcbe7e81ed5e03a378ee8f9f957/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+192            android:exported="false"
+192-->[com.google.android.gms:play-services-base:18.0.1] /Users/devbroseph/.gradle/caches/transforms-3/de309fcbe7e81ed5e03a378ee8f9f957/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+193            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+193-->[com.google.android.gms:play-services-base:18.0.1] /Users/devbroseph/.gradle/caches/transforms-3/de309fcbe7e81ed5e03a378ee8f9f957/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+194
+195        <meta-data
+195-->[com.google.android.gms:play-services-basement:18.0.0] /Users/devbroseph/.gradle/caches/transforms-3/2a59112839be71ac80c64bb6108e566a/transformed/jetified-play-services-basement-18.0.0/AndroidManifest.xml:21:9-23:69
+196            android:name="com.google.android.gms.version"
+196-->[com.google.android.gms:play-services-basement:18.0.0] /Users/devbroseph/.gradle/caches/transforms-3/2a59112839be71ac80c64bb6108e566a/transformed/jetified-play-services-basement-18.0.0/AndroidManifest.xml:22:13-58
+197            android:value="@integer/google_play_services_version" />
+197-->[com.google.android.gms:play-services-basement:18.0.0] /Users/devbroseph/.gradle/caches/transforms-3/2a59112839be71ac80c64bb6108e566a/transformed/jetified-play-services-basement-18.0.0/AndroidManifest.xml:23:13-66
+198    </application>
+199
+200</manifest>

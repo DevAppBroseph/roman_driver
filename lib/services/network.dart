@@ -690,25 +690,29 @@ class Network {
       });
       print(data);
     }
+    // try {
+    // try {
     try {
-      try {
-        if (data != null) {
-          var answer = weightFromJson(data);
-          // _showAnswer(1, answer.success);
+      if (data != null) {
+        var answer = weightFromJson(data);
+        // _showAnswer(1, answer.success);
 
-          return answer;
-        } else {
-          return null;
-        }
-      } catch (e) {
-        print('im here');
+        return answer;
+      } else {
         return null;
       }
     } catch (e) {
-      var answer = messageAnswerFromJson(data!);
-      _showAnswer(answer.error, answer.message);
       return null;
     }
+    // } catch (e) {
+    //   print('im here');
+    //   return null;
+    // }
+    // } catch (e) {
+    //   var answer = messageAnswerFromJson(data!);
+    //   _showAnswer(answer.error, answer.message);
+    //   return null;
+    // }
   }
 
   static Future changeCash(

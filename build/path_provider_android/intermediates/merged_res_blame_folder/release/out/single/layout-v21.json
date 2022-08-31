@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/devbroseph/Desktop/Work/Roman_App/build/path_provider_android/intermediates/res/merged/release/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/devbroseph/.gradle/caches/transforms-3/e59cd5b5e8d120cbba56a8101b1dfa1b/transformed/core-1.6.0/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/devbroseph/Desktop/Work/Roman_App/build/path_provider_android/intermediates/res/merged/release/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/devbroseph/.gradle/caches/transforms-3/e59cd5b5e8d120cbba56a8101b1dfa1b/transformed/core-1.6.0/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/devbroseph/Desktop/Work/Roman_App/build/path_provider_android/intermediates/res/merged/release/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/devbroseph/.gradle/caches/transforms-3/e59cd5b5e8d120cbba56a8101b1dfa1b/transformed/core-1.6.0/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/devbroseph/Desktop/Work/Roman_App/build/path_provider_android/intermediates/res/merged/release/layout-v21/notification_action.xml",
+        "source": "/Users/devbroseph/.gradle/caches/transforms-3/e59cd5b5e8d120cbba56a8101b1dfa1b/transformed/core-1.6.0/res/layout-v21/notification_action.xml"
+    }
+]

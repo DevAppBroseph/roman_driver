@@ -14,6 +14,7 @@ void main() async {
   await Firebase.initializeApp();
 
   var provider = await DataProvider.getInstance();
+  print(provider.driver.driverToken);
   await FirebaseMessaging.instance.requestPermission(
     alert: true,
     announcement: false,

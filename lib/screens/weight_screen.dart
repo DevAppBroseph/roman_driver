@@ -100,8 +100,7 @@ class _WeightScreenState extends State<WeightScreen> {
           content: Text("Пожалуйста подождите... Загружаем выбранные фото")));
       for (var img in pickedImages) {
         final file = await img.originFile;
-        final imgRef =
-            ref.child("order_id${widget.orderId}img${img.createDateTime}");
+        final imgRef = ref.child("order_id${widget.orderId}img${img.id}");
         await ref.putFile(file!);
 
         var dowurl = await imgRef.getDownloadURL();

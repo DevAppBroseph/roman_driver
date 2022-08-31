@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/Users/devbroseph/.gradle/caches/transforms-3/e59cd5b5e8d120cbba56a8101b1dfa1b/transformed/core-1.6.0/res/values-ms/values-ms.xml",
+                    "source": "/Users/devbroseph/.gradle/caches/transforms-3/f6581c7e664ba028270f3904499353a3/transformed/core-1.7.0/res/values-ms/values-ms.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -47,11 +47,28 @@
                         "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "20",
+                        "startLines": "29",
                         "startColumns": "4",
-                        "startOffsets": "2411",
+                        "startOffsets": "3070",
                         "endColumns": "100",
-                        "endOffsets": "2507"
+                        "endOffsets": "3166"
+                    }
+                },
+                {
+                    "source": "/Users/devbroseph/.gradle/caches/transforms-3/393f1b11922533657fed7065ec1801ee/transformed/jetified-exoplayer-core-2.18.1/res/values-ms/values-ms.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,189,255,320,398,464,554,637",
+                        "endColumns": "69,63,65,64,77,65,89,82,76",
+                        "endOffsets": "120,184,250,315,393,459,549,632,709"
+                    },
+                    "to": {
+                        "startLines": "20,21,22,23,24,25,26,27,28",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "2411,2481,2545,2611,2676,2754,2820,2910,2993",
+                        "endColumns": "69,63,65,64,77,65,89,82,76",
+                        "endOffsets": "2476,2540,2606,2671,2749,2815,2905,2988,3065"
                     }
                 }
             ]

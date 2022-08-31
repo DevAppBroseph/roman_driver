@@ -29,7 +29,7 @@ apply plugin: 'com.google.gms.google-services'
 
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -52,6 +52,13 @@ android {
         versionName "1.9"
         multiDexEnabled true
     }
+
+    lintOptions {
+            disable 'InvalidPackage'
+            disable "Instantiatable"
+            checkReleaseBuilds false
+            abortOnError false
+        }
 
     buildTypes {
         release {

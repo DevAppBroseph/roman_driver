@@ -952,7 +952,7 @@ class Weight {
         weight: listOfWeightFromJson(json["weight"]),
         date: int.parse(json["date"].toString()),
         comment: json["comment"].toString(),
-        images: json["images"] == 'null' ? [] : jsonDecode(json["images"]),
+        images: json["images"] == null ? [] : jsonDecode(json["images"]),
       );
 
   Map<String, dynamic> toJson() => {
